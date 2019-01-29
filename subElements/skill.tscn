@@ -1,0 +1,156 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/skill.gd" type="Script" id=1]
+[ext_resource path="res://scripts/specialties.gd" type="Script" id=2]
+[ext_resource path="res://subElements/dot.tscn" type="PackedScene" id=3]
+
+[node name="skill" type="HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 251.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 1 )
+value = 0
+
+[node name="check" type="CheckBox" parent="." index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 24.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+
+[node name="label" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 86.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+text = "Lorem Ipsum"
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="SPECIALTIES" type="MenuButton" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 90.0
+margin_right = 181.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 0
+shortcut = null
+group = null
+flat = false
+align = 1
+items = [  ]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Size Flags", "Theme", "custom_styles" ]
+
+[node name="dots" type="HBoxContainer" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 185.0
+margin_right = 251.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 8
+size_flags_vertical = 11
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dot" parent="dots" index="0" instance=ExtResource( 3 )]
+
+margin_top = 5.0
+margin_bottom = 15.0
+
+[node name="dot2" parent="dots" index="1" instance=ExtResource( 3 )]
+
+margin_left = 14.0
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 15.0
+
+[node name="dot3" parent="dots" index="2" instance=ExtResource( 3 )]
+
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 38.0
+margin_bottom = 15.0
+
+[node name="dot4" parent="dots" index="3" instance=ExtResource( 3 )]
+
+margin_left = 42.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 15.0
+
+[node name="dot5" parent="dots" index="4" instance=ExtResource( 3 )]
+
+margin_left = 56.0
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 15.0
+
+[connection signal="toggled" from="dots/dot" to="." method="_on_dot_toggled"]
+
+[connection signal="toggled" from="dots/dot2" to="." method="_on_dot_toggled"]
+
+[connection signal="toggled" from="dots/dot3" to="." method="_on_dot_toggled"]
+
+[connection signal="toggled" from="dots/dot4" to="." method="_on_dot_toggled"]
+
+[connection signal="toggled" from="dots/dot5" to="." method="_on_dot_toggled"]
+
+

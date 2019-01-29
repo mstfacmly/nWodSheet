@@ -1,0 +1,6100 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/sheetTheme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/sheet.gd" type="Script" id=2]
+[ext_resource path="res://scripts/info.gd" type="Script" id=3]
+[ext_resource path="res://scripts/virtues.gd" type="Script" id=4]
+[ext_resource path="res://scripts/vices.gd" type="Script" id=5]
+[ext_resource path="res://subElements/attribute.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/mental.gd" type="Script" id=7]
+[ext_resource path="res://subElements/skill.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/physical.gd" type="Script" id=9]
+[ext_resource path="res://scripts/social.gd" type="Script" id=10]
+[ext_resource path="res://scripts/merits.gd" type="Script" id=11]
+[ext_resource path="res://subElements/dot.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/equipment.gd" type="Script" id=13]
+[ext_resource path="res://scripts/xp_save.gd" type="Script" id=14]
+[ext_resource path="res://subElements/healthBox.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scripts/moral.gd" type="Script" id=16]
+
+[node name="base" type="Panel" index="0"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = -1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Anchor", "Mouse", "Pause", "Rect", "Size Flags", "custom_constants" ]
+SIZE = 5
+MORAL = 7
+
+[node name="scroll" type="ScrollContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+scroll_horizontal = 0
+scroll_vertical_enabled = true
+scroll_vertical = 0
+scroll_deadzone = 20
+_sections_unfolded = [ "Anchor", "Scroll", "Size Flags", "Visibility" ]
+
+[node name="margin" type="MarginContainer" parent="scroll" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 960.0
+margin_bottom = 1020.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 42
+custom_constants/margin_top = 21
+custom_constants/margin_left = 42
+custom_constants/margin_bottom = 21
+_sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_constants" ]
+
+[node name="org" type="VBoxContainer" parent="scroll/margin" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 42.0
+margin_top = 21.0
+margin_right = 918.0
+margin_bottom = 999.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Anchor" ]
+
+[node name="title" type="Label" parent="scroll/margin/org" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 876.0
+margin_bottom = 122.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+text = "the World of Darkness"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="info" type="HBoxContainer" parent="scroll/margin/org" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 126.0
+margin_right = 876.0
+margin_bottom = 194.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 5
+size_flags_vertical = 1
+alignment = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="player" type="VBoxContainer" parent="scroll/margin/org/info" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 268.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Focus", "Margin", "Size Flags" ]
+
+[node name="name" type="HBoxContainer" parent="scroll/margin/org/info/player" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 268.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/info/player/name" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 56.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 7
+text = "Name : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/info/player/name" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_right = 268.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 6
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Caret", "Placeholder" ]
+
+[node name="player" type="HBoxContainer" parent="scroll/margin/org/info/player" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 268.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/info/player/player" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 72.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 7
+text = "Player : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/info/player/player" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_right = 268.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 6
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Caret", "Placeholder" ]
+
+[node name="chronicle" type="HBoxContainer" parent="scroll/margin/org/info/player" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 268.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/info/player/chronicle" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 96.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 7
+text = "Chronicle : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/info/player/chronicle" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_right = 268.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 6
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Caret", "Placeholder" ]
+
+[node name="sep" type="Container" parent="scroll/margin/org/info" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 272.0
+margin_right = 298.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="concept" type="VBoxContainer" parent="scroll/margin/org/info" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 302.0
+margin_right = 570.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Focus", "Margin", "Size Flags" ]
+
+[node name="concept" type="HBoxContainer" parent="scroll/margin/org/info/concept" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 268.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/info/concept/concept" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 72.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 7
+text = "Concept: "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/info/concept/concept" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 76.0
+margin_right = 268.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 6
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Caret", "Placeholder", "Size Flags", "custom_fonts" ]
+
+[node name="virtue" type="HBoxContainer" parent="scroll/margin/org/info/concept" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 268.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/info/concept/virtue" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 64.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 7
+text = "Virtue: "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="menu" type="OptionButton" parent="scroll/margin/org/info/concept/virtue" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 68.0
+margin_right = 268.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 2
+items = [  ]
+selected = -1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Caret", "Placeholder", "Size Flags" ]
+
+[node name="vice" type="HBoxContainer" parent="scroll/margin/org/info/concept" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 268.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/info/concept/vice" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 48.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 7
+text = "Vice: "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="menu" type="OptionButton" parent="scroll/margin/org/info/concept/vice" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 52.0
+margin_right = 268.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 2
+items = [  ]
+selected = -1
+script = ExtResource( 5 )
+_sections_unfolded = [ "Caret", "Placeholder" ]
+
+[node name="sep2" type="Container" parent="scroll/margin/org/info" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 574.0
+margin_right = 600.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="details" type="VBoxContainer" parent="scroll/margin/org/info" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 604.0
+margin_right = 876.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Focus", "Margin", "Size Flags" ]
+
+[node name="age" type="HBoxContainer" parent="scroll/margin/org/info/details" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 272.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/info/details/age" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 48.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 7
+text = "Age : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/info/details/age" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 52.0
+margin_right = 272.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 6
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Caret", "Placeholder" ]
+
+[node name="faction" type="HBoxContainer" parent="scroll/margin/org/info/details" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 272.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/info/details/faction" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 80.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 7
+text = "Faction : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/info/details/faction" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 84.0
+margin_right = 272.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 6
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Caret", "Placeholder" ]
+
+[node name="group" type="HBoxContainer" parent="scroll/margin/org/info/details" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 272.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/info/details/group" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 104.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 7
+text = "Group Name : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/info/details/group" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 108.0
+margin_right = 272.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 6
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 1.0
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Caret", "Placeholder" ]
+
+[node name="attrLBL" type="Label" parent="scroll/margin/org" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 198.0
+margin_right = 876.0
+margin_bottom = 217.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.05
+text = "Attributes"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ATTRIBUTES" type="HBoxContainer" parent="scroll/margin/org" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 221.0
+margin_right = 876.0
+margin_bottom = 286.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 5
+size_flags_vertical = 1
+alignment = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="labels" type="VBoxContainer" parent="scroll/margin/org/ATTRIBUTES" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 113.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="pow" type="Label" parent="scroll/margin/org/ATTRIBUTES/labels" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 113.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Power"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="fin" type="Label" parent="scroll/margin/org/ATTRIBUTES/labels" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 113.0
+margin_bottom = 42.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Finesse"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="resist" type="Label" parent="scroll/margin/org/ATTRIBUTES/labels" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 46.0
+margin_right = 113.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Resistance"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="sep3" type="Container" parent="scroll/margin/org/ATTRIBUTES" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 117.0
+margin_right = 128.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.05
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="mental" type="VBoxContainer" parent="scroll/margin/org/ATTRIBUTES" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 132.0
+margin_right = 359.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Focus", "Margin", "Size Flags" ]
+
+[node name="INTELLIGENCE" parent="scroll/margin/org/ATTRIBUTES/mental" index="0" instance=ExtResource( 6 )]
+
+margin_right = 227.0
+margin_bottom = 19.0
+
+[node name="WITS" parent="scroll/margin/org/ATTRIBUTES/mental" index="1" instance=ExtResource( 6 )]
+
+margin_top = 23.0
+margin_right = 227.0
+margin_bottom = 42.0
+
+[node name="RESOLVE" parent="scroll/margin/org/ATTRIBUTES/mental" index="2" instance=ExtResource( 6 )]
+
+margin_top = 46.0
+margin_right = 227.0
+margin_bottom = 65.0
+
+[node name="sep" type="Container" parent="scroll/margin/org/ATTRIBUTES" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 363.0
+margin_right = 385.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="physical" type="VBoxContainer" parent="scroll/margin/org/ATTRIBUTES" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 389.0
+margin_right = 616.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Focus", "Margin", "Size Flags" ]
+
+[node name="STRENGTH" parent="scroll/margin/org/ATTRIBUTES/physical" index="0" instance=ExtResource( 6 )]
+
+margin_right = 227.0
+margin_bottom = 19.0
+
+[node name="DEXTERITY" parent="scroll/margin/org/ATTRIBUTES/physical" index="1" instance=ExtResource( 6 )]
+
+margin_top = 23.0
+margin_right = 227.0
+margin_bottom = 42.0
+
+[node name="STAMINA" parent="scroll/margin/org/ATTRIBUTES/physical" index="2" instance=ExtResource( 6 )]
+
+margin_top = 46.0
+margin_right = 227.0
+margin_bottom = 65.0
+
+[node name="sep2" type="Container" parent="scroll/margin/org/ATTRIBUTES" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 620.0
+margin_right = 642.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="social" type="VBoxContainer" parent="scroll/margin/org/ATTRIBUTES" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 646.0
+margin_right = 876.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Focus", "Margin", "Size Flags" ]
+
+[node name="PRESENCE" parent="scroll/margin/org/ATTRIBUTES/social" index="0" instance=ExtResource( 6 )]
+
+margin_right = 230.0
+margin_bottom = 19.0
+
+[node name="MANIPULATION" parent="scroll/margin/org/ATTRIBUTES/social" index="1" instance=ExtResource( 6 )]
+
+margin_top = 23.0
+margin_right = 230.0
+margin_bottom = 42.0
+
+[node name="COMPOSURE" parent="scroll/margin/org/ATTRIBUTES/social" index="2" instance=ExtResource( 6 )]
+
+margin_top = 46.0
+margin_right = 230.0
+margin_bottom = 65.0
+
+[node name="advantages" type="HBoxContainer" parent="scroll/margin/org" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 290.0
+margin_right = 876.0
+margin_bottom = 978.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="SKILLS" type="VBoxContainer" parent="scroll/margin/org/advantages" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 249.0
+margin_bottom = 688.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/SKILLS" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 249.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.06
+text = "Skills"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="mental" type="VBoxContainer" parent="scroll/margin/org/advantages/SKILLS" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 249.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 7 )
+_sections_unfolded = [ "Hint", "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/SKILLS/mental" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 249.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 2
+text = "Mental (-3 unskilled)"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="penalty" type="Label" parent="scroll/margin/org/advantages/SKILLS/mental" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 240.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 2
+text = "( -3 unskilled)"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="list" type="VBoxContainer" parent="scroll/margin/org/advantages/SKILLS/mental" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 249.0
+margin_bottom = 219.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="skill" parent="scroll/margin/org/advantages/SKILLS/mental/list" index="0" instance=ExtResource( 8 )]
+
+margin_right = 249.0
+margin_bottom = 21.0
+
+[node name="skill2" parent="scroll/margin/org/advantages/SKILLS/mental/list" index="1" instance=ExtResource( 8 )]
+
+margin_top = 25.0
+margin_right = 249.0
+margin_bottom = 46.0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="skill3" parent="scroll/margin/org/advantages/SKILLS/mental/list" index="2" instance=ExtResource( 8 )]
+
+margin_top = 50.0
+margin_right = 249.0
+margin_bottom = 71.0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="skill4" parent="scroll/margin/org/advantages/SKILLS/mental/list" index="3" instance=ExtResource( 8 )]
+
+margin_top = 75.0
+margin_right = 249.0
+margin_bottom = 96.0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="skill5" parent="scroll/margin/org/advantages/SKILLS/mental/list" index="4" instance=ExtResource( 8 )]
+
+margin_top = 100.0
+margin_right = 249.0
+margin_bottom = 121.0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="skill6" parent="scroll/margin/org/advantages/SKILLS/mental/list" index="5" instance=ExtResource( 8 )]
+
+margin_top = 125.0
+margin_right = 249.0
+margin_bottom = 146.0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="skill7" parent="scroll/margin/org/advantages/SKILLS/mental/list" index="6" instance=ExtResource( 8 )]
+
+margin_top = 150.0
+margin_right = 249.0
+margin_bottom = 171.0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="skill8" parent="scroll/margin/org/advantages/SKILLS/mental/list" index="7" instance=ExtResource( 8 )]
+
+margin_top = 175.0
+margin_right = 249.0
+margin_bottom = 196.0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="physical" type="VBoxContainer" parent="scroll/margin/org/advantages/SKILLS" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 246.0
+margin_right = 249.0
+margin_bottom = 465.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 9 )
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/SKILLS/physical" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 249.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 6
+text = "Physical (-1 Unskilled)"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "custom_fonts" ]
+
+[node name="penalty" type="Label" parent="scroll/margin/org/advantages/SKILLS/physical" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 240.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 6
+text = "(-1 Unskilled)"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="list" type="VBoxContainer" parent="scroll/margin/org/advantages/SKILLS/physical" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 249.0
+margin_bottom = 219.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="skill" parent="scroll/margin/org/advantages/SKILLS/physical/list" index="0" instance=ExtResource( 8 )]
+
+margin_right = 249.0
+margin_bottom = 21.0
+
+[node name="skill2" parent="scroll/margin/org/advantages/SKILLS/physical/list" index="1" instance=ExtResource( 8 )]
+
+margin_top = 25.0
+margin_right = 249.0
+margin_bottom = 46.0
+
+[node name="skill3" parent="scroll/margin/org/advantages/SKILLS/physical/list" index="2" instance=ExtResource( 8 )]
+
+margin_top = 50.0
+margin_right = 249.0
+margin_bottom = 71.0
+
+[node name="skill4" parent="scroll/margin/org/advantages/SKILLS/physical/list" index="3" instance=ExtResource( 8 )]
+
+margin_top = 75.0
+margin_right = 249.0
+margin_bottom = 96.0
+
+[node name="skill5" parent="scroll/margin/org/advantages/SKILLS/physical/list" index="4" instance=ExtResource( 8 )]
+
+margin_top = 100.0
+margin_right = 249.0
+margin_bottom = 121.0
+
+[node name="skill6" parent="scroll/margin/org/advantages/SKILLS/physical/list" index="5" instance=ExtResource( 8 )]
+
+margin_top = 125.0
+margin_right = 249.0
+margin_bottom = 146.0
+
+[node name="skill7" parent="scroll/margin/org/advantages/SKILLS/physical/list" index="6" instance=ExtResource( 8 )]
+
+margin_top = 150.0
+margin_right = 249.0
+margin_bottom = 171.0
+
+[node name="skill8" parent="scroll/margin/org/advantages/SKILLS/physical/list" index="7" instance=ExtResource( 8 )]
+
+margin_top = 175.0
+margin_right = 249.0
+margin_bottom = 196.0
+
+[node name="social" type="VBoxContainer" parent="scroll/margin/org/advantages/SKILLS" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 469.0
+margin_right = 249.0
+margin_bottom = 688.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 10 )
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/SKILLS/social" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 249.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 6
+text = "Social (-1 Unskilled)"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="penalty" type="Label" parent="scroll/margin/org/advantages/SKILLS/social" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 240.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 6
+text = "(-1 Unskilled)"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="list" type="VBoxContainer" parent="scroll/margin/org/advantages/SKILLS/social" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 249.0
+margin_bottom = 219.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="skill" parent="scroll/margin/org/advantages/SKILLS/social/list" index="0" instance=ExtResource( 8 )]
+
+margin_right = 249.0
+margin_bottom = 21.0
+
+[node name="skill2" parent="scroll/margin/org/advantages/SKILLS/social/list" index="1" instance=ExtResource( 8 )]
+
+margin_top = 25.0
+margin_right = 249.0
+margin_bottom = 46.0
+
+[node name="skill3" parent="scroll/margin/org/advantages/SKILLS/social/list" index="2" instance=ExtResource( 8 )]
+
+margin_top = 50.0
+margin_right = 249.0
+margin_bottom = 71.0
+
+[node name="skill4" parent="scroll/margin/org/advantages/SKILLS/social/list" index="3" instance=ExtResource( 8 )]
+
+margin_top = 75.0
+margin_right = 249.0
+margin_bottom = 96.0
+
+[node name="skill5" parent="scroll/margin/org/advantages/SKILLS/social/list" index="4" instance=ExtResource( 8 )]
+
+margin_top = 100.0
+margin_right = 249.0
+margin_bottom = 121.0
+
+[node name="skill6" parent="scroll/margin/org/advantages/SKILLS/social/list" index="5" instance=ExtResource( 8 )]
+
+margin_top = 125.0
+margin_right = 249.0
+margin_bottom = 146.0
+
+[node name="skill7" parent="scroll/margin/org/advantages/SKILLS/social/list" index="6" instance=ExtResource( 8 )]
+
+margin_top = 150.0
+margin_right = 249.0
+margin_bottom = 171.0
+
+[node name="skill8" parent="scroll/margin/org/advantages/SKILLS/social/list" index="7" instance=ExtResource( 8 )]
+
+margin_top = 175.0
+margin_right = 249.0
+margin_bottom = 196.0
+
+[node name="TRAITS" type="VBoxContainer" parent="scroll/margin/org/advantages" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 253.0
+margin_right = 876.0
+margin_bottom = 688.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 623.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.1
+text = "Other Traits"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "custom_fonts" ]
+
+[node name="traits" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 623.0
+margin_bottom = 688.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="sep" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 14.0
+margin_bottom = 665.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="BACKGROUNDS" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_right = 310.0
+margin_bottom = 665.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="MERITS" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 292.0
+margin_bottom = 211.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 5
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 292.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.2
+text = "Merits"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="merit" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 292.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 11 )
+_sections_unfolded = [ "Size Flags" ]
+value = 0
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 222.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dots" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 8
+size_flags_vertical = 9
+alignment = 0
+_sections_unfolded = [ "Focus", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots" index="0" instance=ExtResource( 12 )]
+
+margin_top = 5.0
+margin_bottom = 15.0
+
+[node name="dot2" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots" index="1" instance=ExtResource( 12 )]
+
+margin_left = 14.0
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 15.0
+
+[node name="dot3" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots" index="2" instance=ExtResource( 12 )]
+
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 38.0
+margin_bottom = 15.0
+
+[node name="dot4" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots" index="3" instance=ExtResource( 12 )]
+
+margin_left = 42.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 15.0
+
+[node name="dot5" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots" index="4" instance=ExtResource( 12 )]
+
+margin_left = 56.0
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 15.0
+
+[node name="merit2" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 47.0
+margin_right = 292.0
+margin_bottom = 67.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 11 )
+_sections_unfolded = [ "Size Flags" ]
+value = 0
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 222.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dots" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 8
+size_flags_vertical = 9
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2/dots" index="0" instance=ExtResource( 12 )]
+
+margin_top = 5.0
+margin_bottom = 15.0
+
+[node name="dot2" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2/dots" index="1" instance=ExtResource( 12 )]
+
+margin_left = 14.0
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 15.0
+
+[node name="dot3" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2/dots" index="2" instance=ExtResource( 12 )]
+
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 38.0
+margin_bottom = 15.0
+
+[node name="dot4" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2/dots" index="3" instance=ExtResource( 12 )]
+
+margin_left = 42.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 15.0
+
+[node name="dot5" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2/dots" index="4" instance=ExtResource( 12 )]
+
+margin_left = 56.0
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 15.0
+
+[node name="merit3" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 71.0
+margin_right = 292.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 11 )
+_sections_unfolded = [ "Size Flags" ]
+value = 0
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 222.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dots" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 8
+size_flags_vertical = 9
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3/dots" index="0" instance=ExtResource( 12 )]
+
+margin_top = 5.0
+margin_bottom = 15.0
+
+[node name="dot2" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3/dots" index="1" instance=ExtResource( 12 )]
+
+margin_left = 14.0
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 15.0
+
+[node name="dot3" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3/dots" index="2" instance=ExtResource( 12 )]
+
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 38.0
+margin_bottom = 15.0
+
+[node name="dot4" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3/dots" index="3" instance=ExtResource( 12 )]
+
+margin_left = 42.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 15.0
+
+[node name="dot5" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3/dots" index="4" instance=ExtResource( 12 )]
+
+margin_left = 56.0
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 15.0
+
+[node name="merit4" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 95.0
+margin_right = 292.0
+margin_bottom = 115.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 11 )
+_sections_unfolded = [ "Size Flags" ]
+value = 0
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 222.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dots" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 8
+size_flags_vertical = 9
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4/dots" index="0" instance=ExtResource( 12 )]
+
+margin_top = 5.0
+margin_bottom = 15.0
+
+[node name="dot2" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4/dots" index="1" instance=ExtResource( 12 )]
+
+margin_left = 14.0
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 15.0
+
+[node name="dot3" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4/dots" index="2" instance=ExtResource( 12 )]
+
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 38.0
+margin_bottom = 15.0
+
+[node name="dot4" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4/dots" index="3" instance=ExtResource( 12 )]
+
+margin_left = 42.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 15.0
+
+[node name="dot5" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4/dots" index="4" instance=ExtResource( 12 )]
+
+margin_left = 56.0
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 15.0
+
+[node name="merit5" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 119.0
+margin_right = 292.0
+margin_bottom = 139.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 11 )
+_sections_unfolded = [ "Size Flags" ]
+value = 0
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 222.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dots" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 8
+size_flags_vertical = 9
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5/dots" index="0" instance=ExtResource( 12 )]
+
+margin_top = 5.0
+margin_bottom = 15.0
+
+[node name="dot2" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5/dots" index="1" instance=ExtResource( 12 )]
+
+margin_left = 14.0
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 15.0
+
+[node name="dot3" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5/dots" index="2" instance=ExtResource( 12 )]
+
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 38.0
+margin_bottom = 15.0
+
+[node name="dot4" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5/dots" index="3" instance=ExtResource( 12 )]
+
+margin_left = 42.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 15.0
+
+[node name="dot5" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5/dots" index="4" instance=ExtResource( 12 )]
+
+margin_left = 56.0
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 15.0
+
+[node name="merit6" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 143.0
+margin_right = 292.0
+margin_bottom = 163.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 11 )
+_sections_unfolded = [ "Size Flags" ]
+value = 0
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 222.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dots" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 8
+size_flags_vertical = 9
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6/dots" index="0" instance=ExtResource( 12 )]
+
+margin_top = 5.0
+margin_bottom = 15.0
+
+[node name="dot2" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6/dots" index="1" instance=ExtResource( 12 )]
+
+margin_left = 14.0
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 15.0
+
+[node name="dot3" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6/dots" index="2" instance=ExtResource( 12 )]
+
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 38.0
+margin_bottom = 15.0
+
+[node name="dot4" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6/dots" index="3" instance=ExtResource( 12 )]
+
+margin_left = 42.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 15.0
+
+[node name="dot5" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6/dots" index="4" instance=ExtResource( 12 )]
+
+margin_left = 56.0
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 15.0
+
+[node name="merit7" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS" index="7"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 167.0
+margin_right = 292.0
+margin_bottom = 187.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 11 )
+_sections_unfolded = [ "Size Flags" ]
+value = 0
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 222.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dots" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 8
+size_flags_vertical = 9
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7/dots" index="0" instance=ExtResource( 12 )]
+
+margin_top = 5.0
+margin_bottom = 15.0
+
+[node name="dot2" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7/dots" index="1" instance=ExtResource( 12 )]
+
+margin_left = 14.0
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 15.0
+
+[node name="dot3" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7/dots" index="2" instance=ExtResource( 12 )]
+
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 38.0
+margin_bottom = 15.0
+
+[node name="dot4" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7/dots" index="3" instance=ExtResource( 12 )]
+
+margin_left = 42.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 15.0
+
+[node name="dot5" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7/dots" index="4" instance=ExtResource( 12 )]
+
+margin_left = 56.0
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 15.0
+
+[node name="merit8" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS" index="8"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 191.0
+margin_right = 292.0
+margin_bottom = 211.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+alignment = 0
+script = ExtResource( 11 )
+_sections_unfolded = [ "Size Flags" ]
+value = 0
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 222.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dots" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 8
+size_flags_vertical = 9
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots" index="0" instance=ExtResource( 12 )]
+
+margin_top = 5.0
+margin_bottom = 15.0
+
+[node name="dot2" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots" index="1" instance=ExtResource( 12 )]
+
+margin_left = 14.0
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 15.0
+
+[node name="dot3" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots" index="2" instance=ExtResource( 12 )]
+
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 38.0
+margin_bottom = 15.0
+
+[node name="dot4" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots" index="3" instance=ExtResource( 12 )]
+
+margin_left = 42.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 15.0
+
+[node name="dot5" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots" index="4" instance=ExtResource( 12 )]
+
+margin_left = 56.0
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 15.0
+
+[node name="FLAWS" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 215.0
+margin_right = 292.0
+margin_bottom = 306.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/FLAWS" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 292.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+text = "Flaws"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="flaw" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/FLAWS" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 292.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="flaw2" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/FLAWS" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 47.0
+margin_right = 292.0
+margin_bottom = 67.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="flaw3" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/FLAWS" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 71.0
+margin_right = 292.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 3
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="sep" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 310.0
+margin_right = 292.0
+margin_bottom = 319.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="OTHER" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 323.0
+margin_right = 292.0
+margin_bottom = 462.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="SIZE" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/SIZE" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 56.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+text = "Size : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/SIZE" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 2
+expand_to_text_length = true
+focus_mode = 2
+context_menu_enabled = true
+placeholder_text = "5 (Adult Human)"
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Anchor", "Caret", "Placeholder" ]
+
+[node name="SPEED" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 292.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/SPEED" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 64.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+text = "Speed : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/SPEED" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 68.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 2
+editable = false
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="DEFENSE" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 292.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/DEFENSE" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 80.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+text = "Defense : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/DEFENSE" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 84.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 2
+editable = false
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="ARMOR" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 292.0
+margin_bottom = 92.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/ARMOR" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 64.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+text = "Armor : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/ARMOR" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 68.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 2
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="INIT" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 96.0
+margin_right = 292.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/INIT" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 136.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+text = "Initiative Mod : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/INIT" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 140.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+align = 2
+editable = false
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="BEATS" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 120.0
+margin_right = 292.0
+margin_bottom = 139.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/BEATS" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 64.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+text = "Beats : "
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="Container" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/BEATS" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 68.0
+margin_right = 192.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="CheckBox" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/BEATS" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 196.0
+margin_right = 212.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+
+[node name="CheckBox2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/BEATS" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_right = 232.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+
+[node name="CheckBox3" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/BEATS" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 236.0
+margin_right = 252.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+
+[node name="CheckBox4" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/BEATS" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 256.0
+margin_right = 272.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+
+[node name="CheckBox5" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/BEATS" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 276.0
+margin_right = 292.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+
+[node name="EQUIPMENT" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 466.0
+margin_right = 292.0
+margin_bottom = 563.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 292.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.2
+text = "Equipment"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="equip" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 292.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 13 )
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="name" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 192.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="value" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 196.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 11
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+align = 2
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="equip2" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 47.0
+margin_right = 292.0
+margin_bottom = 67.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 13 )
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="name" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 192.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="value" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 196.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 11
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+align = 2
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="equip3" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 71.0
+margin_right = 292.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 13 )
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="name" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 192.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="value" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip3" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 196.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 11
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.5
+align = 2
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="EXPERIENCE" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 567.0
+margin_right = 292.0
+margin_bottom = 665.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 292.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "Experience"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="game" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 292.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="sep" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 2.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_right = 38.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "Game"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 42.0
+margin_right = 138.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+align = 2
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+script = ExtResource( 14 )
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="sep2" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 142.0
+margin_right = 144.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label2" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 148.0
+margin_right = 188.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "Total"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="total" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_right = 288.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+align = 2
+editable = false
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+script = ExtResource( 14 )
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="1" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 292.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="info" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 47.0
+margin_right = 292.0
+margin_bottom = 67.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="sep" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/info" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/info" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_right = 44.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "Spent"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="spent" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/info" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_right = 144.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+align = 2
+editable = false
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+script = ExtResource( 14 )
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="sep2" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/info" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 148.0
+margin_right = 148.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label2" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/info" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_right = 192.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "Avail"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="avail" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/info" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 196.0
+margin_right = 292.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+align = 2
+editable = false
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+script = ExtResource( 14 )
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="sep2" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 314.0
+margin_right = 328.0
+margin_bottom = 665.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="LIFE" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 332.0
+margin_right = 623.0
+margin_bottom = 665.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="HEALTH" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 291.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 5
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 291.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.01
+text = "Health"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="values" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 23.0
+margin_right = 287.0
+margin_bottom = 58.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Grow Direction", "Size Flags" ]
+
+[node name="1" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 20.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/1" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/1" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="2" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_right = 44.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/2" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/2" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="3" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_right = 68.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/3" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/3" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="4" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_right = 92.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/4" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/4" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="5" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_right = 116.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/5" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/5" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="6" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_right = 140.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/6" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/6" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="7" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_right = 164.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/7" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/7" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="8" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="7"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_right = 188.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/8" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/8" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="9" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="8"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_right = 212.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/9" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/9" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="10" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="9"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_right = 236.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/10" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/10" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="11" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="10"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_right = 260.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/11" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/11" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="12" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="11"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_right = 284.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/12" index="0" instance=ExtResource( 12 )]
+
+margin_left = 5.0
+margin_right = 15.0
+disabled = true
+
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/12" index="1" instance=ExtResource( 15 )]
+
+margin_bottom = 35.0
+disabled = true
+
+[node name="WILLPOWER" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 62.0
+margin_right = 291.0
+margin_bottom = 119.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 5
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 291.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.01
+text = "Willpower"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "BBCode", "Size Flags", "Theme" ]
+
+[node name="values" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 47.0
+margin_top = 24.0
+margin_right = 243.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Grow Direction", "Size Flags" ]
+
+[node name="1" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/1" index="0" instance=ExtResource( 12 )]
+
+margin_left = 3.0
+margin_right = 13.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/1" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="2" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/2" index="0" instance=ExtResource( 12 )]
+
+margin_left = 3.0
+margin_right = 13.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="3" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_right = 56.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/3" index="0" instance=ExtResource( 12 )]
+
+margin_left = 3.0
+margin_right = 13.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/3" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="4" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_right = 76.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/4" index="0" instance=ExtResource( 12 )]
+
+margin_left = 3.0
+margin_right = 13.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/4" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="5" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/5" index="0" instance=ExtResource( 12 )]
+
+margin_left = 3.0
+margin_right = 13.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/5" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="6" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_right = 116.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/6" index="0" instance=ExtResource( 12 )]
+
+margin_left = 3.0
+margin_right = 13.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/6" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="7" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_right = 136.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/7" index="0" instance=ExtResource( 12 )]
+
+margin_left = 3.0
+margin_right = 13.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/7" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="8" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="7"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 140.0
+margin_right = 156.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/8" index="0" instance=ExtResource( 12 )]
+
+margin_left = 3.0
+margin_right = 13.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/8" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="9" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="8"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 160.0
+margin_right = 176.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/9" index="0" instance=ExtResource( 12 )]
+
+margin_left = 3.0
+margin_right = 13.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/9" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="10" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="9"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 180.0
+margin_right = 196.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/10" index="0" instance=ExtResource( 12 )]
+
+margin_left = 3.0
+margin_right = 13.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/10" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 16.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="ANIMAE" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="2"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 116.0
+margin_right = 284.0
+margin_bottom = 200.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 284.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.01
+text = "Animae"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="values" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 4.0
+margin_top = 18.0
+margin_right = 280.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Grow Direction", "Size Flags" ]
+
+[node name="1" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/1" index="0" instance=ExtResource( 12 )]
+
+margin_left = 7.0
+margin_right = 17.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/1" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/1" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="2" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 28.0
+margin_right = 52.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/2" index="0" instance=ExtResource( 12 )]
+
+margin_left = 7.0
+margin_right = 17.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="3" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 56.0
+margin_right = 80.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/3" index="0" instance=ExtResource( 12 )]
+
+margin_left = 7.0
+margin_right = 17.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/3" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/3" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="4" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 84.0
+margin_right = 108.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/4" index="0" instance=ExtResource( 12 )]
+
+margin_left = 7.0
+margin_right = 17.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/4" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/4" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="5" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 112.0
+margin_right = 136.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/5" index="0" instance=ExtResource( 12 )]
+
+margin_left = 7.0
+margin_right = 17.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/5" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/5" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="6" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 140.0
+margin_right = 164.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/6" index="0" instance=ExtResource( 12 )]
+
+margin_left = 7.0
+margin_right = 17.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/6" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/6" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="7" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 168.0
+margin_right = 192.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/7" index="0" instance=ExtResource( 12 )]
+
+margin_left = 7.0
+margin_right = 17.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/7" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/7" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="8" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values" index="7"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 196.0
+margin_right = 220.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/8" index="0" instance=ExtResource( 12 )]
+
+margin_left = 7.0
+margin_right = 17.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/8" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/8" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="9" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values" index="8"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 224.0
+margin_right = 248.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/9" index="0" instance=ExtResource( 12 )]
+
+margin_left = 7.0
+margin_right = 17.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/9" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/9" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="10" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values" index="9"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 252.0
+margin_right = 276.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/10" index="0" instance=ExtResource( 12 )]
+
+margin_left = 7.0
+margin_right = 17.0
+disabled = true
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/10" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 14.0
+margin_right = 24.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ANIMAE/values/10" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 24.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="MORAL" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 123.0
+margin_right = 291.0
+margin_bottom = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 5
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+alignment = 1
+script = ExtResource( 16 )
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 291.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.01
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="values" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 47.0
+margin_right = 291.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+_sections_unfolded = [ "Grow Direction", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/values" index="0" instance=ExtResource( 12 )]
+
+margin_right = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags", "Textures" ]
+
+[node name="dot2" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/values" index="1" instance=ExtResource( 12 )]
+
+margin_left = 29.0
+margin_right = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags", "Textures" ]
+
+[node name="dot3" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/values" index="2" instance=ExtResource( 12 )]
+
+margin_left = 58.0
+margin_right = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags", "Textures" ]
+
+[node name="dot4" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/values" index="3" instance=ExtResource( 12 )]
+
+margin_left = 87.0
+margin_right = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags", "Textures" ]
+
+[node name="dot5" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/values" index="4" instance=ExtResource( 12 )]
+
+margin_left = 116.0
+margin_right = 141.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags", "Textures" ]
+
+[node name="dot6" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/values" index="5" instance=ExtResource( 12 )]
+
+margin_left = 145.0
+margin_right = 170.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags", "Textures" ]
+
+[node name="dot7" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/values" index="6" instance=ExtResource( 12 )]
+
+margin_left = 174.0
+margin_right = 199.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags", "Textures" ]
+
+[node name="dot8" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/values" index="7" instance=ExtResource( 12 )]
+
+margin_left = 203.0
+margin_right = 228.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags", "Textures" ]
+
+[node name="dot9" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/values" index="8" instance=ExtResource( 12 )]
+
+margin_left = 232.0
+margin_right = 257.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags", "Textures" ]
+
+[node name="dot10" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/values" index="9" instance=ExtResource( 12 )]
+
+margin_left = 261.0
+margin_right = 291.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Size Flags", "Textures" ]
+
+[node name="CONDITIONS" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 184.0
+margin_right = 291.0
+margin_bottom = 275.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+alignment = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/CONDITIONS" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 291.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "Conditions"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/CONDITIONS" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 291.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="input2" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/CONDITIONS" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 47.0
+margin_right = 291.0
+margin_bottom = 67.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="input3" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/CONDITIONS" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 71.0
+margin_right = 291.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="ASPIRATIONS" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 279.0
+margin_right = 291.0
+margin_bottom = 370.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+alignment = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ASPIRATIONS" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 291.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "Aspirations"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ASPIRATIONS" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 291.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="input2" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ASPIRATIONS" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 47.0
+margin_right = 291.0
+margin_bottom = 67.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="input3" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ASPIRATIONS" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 71.0
+margin_right = 291.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="misc" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 374.0
+margin_right = 291.0
+margin_bottom = 665.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="equip" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/misc" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 291.0
+margin_bottom = 291.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots/dot" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots/dot2" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots/dot3" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots/dot4" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots/dot5" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2/dots/dot" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2/dots/dot2" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2/dots/dot3" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2/dots/dot4" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2/dots/dot5" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3/dots/dot" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3/dots/dot2" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3/dots/dot3" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3/dots/dot4" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3/dots/dot5" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4/dots/dot" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4/dots/dot2" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4/dots/dot3" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4/dots/dot4" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4/dots/dot5" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5/dots/dot" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5/dots/dot2" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5/dots/dot3" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5/dots/dot4" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5/dots/dot5" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6/dots/dot" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6/dots/dot2" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6/dots/dot3" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6/dots/dot4" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6/dots/dot5" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7/dots/dot" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7/dots/dot2" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7/dots/dot3" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7/dots/dot4" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7/dots/dot5" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots/dot" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots/dot2" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots/dot3" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots/dot4" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8" method="_on_dot_toggled"]
+
+[connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots/dot5" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8" method="_on_dot_toggled"]
+
+[connection signal="text_changed" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/SIZE/input" to="." method="_text_changed"]
+
+

@@ -1,0 +1,82 @@
+{"name":null}
+{"player":null}
+{"chronicle":null}
+{"concept":null}
+{"virtue":null}
+{"vice":null}
+{"age":null}
+{"faction":null}
+{"group":null}
+{"INTELLIGENCE":1}
+{"WITS":1}
+{"RESOLVE":1}
+{"STRENGTH":1}
+{"DEXTERITY":1}
+{"STAMINA":1}
+{"PRESENCE":1}
+{"MANIPULATION":1}
+{"COMPOSURE":1}
+{"ACADEMICS":0}
+{"ACADEMICS specialties":[]}
+{"COMPUTER":0}
+{"COMPUTER specialties":[]}
+{"CRAFTS":0}
+{"CRAFTS specialties":[]}
+{"INVESTIGATION":0}
+{"INVESTIGATION specialties":[]}
+{"MEDICINE":0}
+{"MEDICINE specialties":[]}
+{"OCCULT":0}
+{"OCCULT specialties":[]}
+{"POLITICS":0}
+{"POLITICS specialties":[]}
+{"SCIENCE":0}
+{"SCIENCE specialties":[]}
+{"ATHLETICS":0}
+{"ATHLETICS specialties":[]}
+{"BRAWL":0}
+{"BRAWL specialties":[]}
+{"DRIVE":0}
+{"DRIVE specialties":[]}
+{"FIREARMS":0}
+{"FIREARMS specialties":[]}
+{"LARCENY":0}
+{"LARCENY specialties":[]}
+{"STEALTH":0}
+{"STEALTH specialties":[]}
+{"SURVIVAL":0}
+{"SURVIVAL specialties":[]}
+{"WEAPONRY":0}
+{"WEAPONRY specialties":[]}
+{"ANIMAL_KEN":0}
+{"ANIMAL_KEN specialties":[]}
+{"EMPATHY":0}
+{"EMPATHY specialties":[]}
+{"EXPRESSION":0}
+{"EXPRESSION specialties":[]}
+{"INTIMIDATION":0}
+{"INTIMIDATION specialties":[]}
+{"PERSUATION":0}
+{"PERSUATION specialties":[]}
+{"SOCIALIZE":0}
+{"SOCIALIZE specialties":[]}
+{"STREETWISE":0}
+{"STREETWISE specialties":[]}
+{"SUBTERFUGE":0}
+{"SUBTERFUGE specialties":[]}
+{"":0}
+{"":0}
+{"":0}
+{"":0}
+{"":0}
+{"":0}
+{"":0}
+{"":0}
+{"Test":"2"}
+{"Enter value":"3"}
+{"Exit":"4"}
+{"Game":"0"}
+{"Total":"0"}
+{"Spent":"0"}
+{"Avail":"0"}
+{"Integrity":7}
