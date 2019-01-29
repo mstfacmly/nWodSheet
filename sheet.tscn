@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/sheetTheme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/sheet.gd" type="Script" id=2]
@@ -12,10 +12,11 @@
 [ext_resource path="res://scripts/social.gd" type="Script" id=10]
 [ext_resource path="res://scripts/merits.gd" type="Script" id=11]
 [ext_resource path="res://subElements/dot.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scripts/equipment.gd" type="Script" id=13]
-[ext_resource path="res://scripts/xp_save.gd" type="Script" id=14]
-[ext_resource path="res://subElements/healthBox.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scripts/moral.gd" type="Script" id=16]
+[ext_resource path="res://scripts/textsave.gd" type="Script" id=13]
+[ext_resource path="res://scripts/equipment.gd" type="Script" id=14]
+[ext_resource path="res://scripts/xp_save.gd" type="Script" id=15]
+[ext_resource path="res://subElements/healthBox.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scripts/moral.gd" type="Script" id=17]
 
 [node name="base" type="Panel" index="0"]
 
@@ -2531,7 +2532,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="flaw" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/FLAWS" index="1"]
+[node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/FLAWS" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -2554,9 +2555,10 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 13 )
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="flaw2" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/FLAWS" index="2"]
+[node name="input2" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/FLAWS" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -2579,9 +2581,10 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 13 )
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="flaw3" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/FLAWS" index="3"]
+[node name="input3" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/FLAWS" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -2604,6 +2607,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 13 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="sep" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="2"]
@@ -3145,6 +3149,7 @@ align = 0
 
 [node name="EQUIPMENT" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="4"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -3200,7 +3205,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="name" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip" index="0"]
@@ -3269,7 +3274,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="name" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip2" index="0"]
@@ -3338,7 +3343,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="name" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip3" index="0"]
@@ -3513,7 +3518,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="sep2" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="3"]
@@ -3581,7 +3586,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="1" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="6"]
@@ -3683,7 +3688,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="sep2" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/info" index="3"]
@@ -3751,7 +3756,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="sep2" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits" index="2"]
@@ -3879,7 +3884,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/1" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/1" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -3909,7 +3914,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/2" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/2" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -3939,7 +3944,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/3" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/3" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -3969,7 +3974,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/4" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/4" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -3999,7 +4004,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/5" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/5" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -4029,7 +4034,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/6" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/6" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -4059,7 +4064,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/7" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/7" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -4089,7 +4094,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/8" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/8" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -4119,7 +4124,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/9" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/9" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -4149,7 +4154,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/10" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/10" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -4179,7 +4184,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/11" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/11" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -4209,7 +4214,7 @@ margin_left = 5.0
 margin_right = 15.0
 disabled = true
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/12" index="1" instance=ExtResource( 15 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/12" index="1" instance=ExtResource( 16 )]
 
 margin_bottom = 35.0
 disabled = true
@@ -5634,7 +5639,7 @@ size_flags_horizontal = 5
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 alignment = 1
-script = ExtResource( 16 )
+script = ExtResource( 17 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL" index="0"]
@@ -5821,6 +5826,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 13 )
 
 [node name="input2" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/CONDITIONS" index="2"]
 
@@ -5844,6 +5850,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 13 )
 
 [node name="input3" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/CONDITIONS" index="3"]
 
@@ -5867,6 +5874,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 13 )
 
 [node name="ASPIRATIONS" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="5"]
 
@@ -5932,6 +5940,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 13 )
 
 [node name="input2" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ASPIRATIONS" index="2"]
 
@@ -5955,6 +5964,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 13 )
 
 [node name="input3" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ASPIRATIONS" index="3"]
 
@@ -5978,6 +5988,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 13 )
 
 [node name="misc" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="6"]
 
