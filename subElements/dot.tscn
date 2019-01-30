@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/dot_normal.png" type="Texture" id=1]
-[ext_resource path="res://assets/dot_clicked.png" type="Texture" id=2]
+[ext_resource path="res://assets/dot_clicked.png" type="Texture" id=1]
+[ext_resource path="res://assets/dot_normal.png" type="Texture" id=2]
 
 [node name="dot" type="TextureButton" index="0"]
 
@@ -20,6 +20,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 toggle_mode = true
+pressed = true
 enabled_focus_mode = 2
 shortcut = null
 group = null

@@ -159,11 +159,12 @@ func updt_wp():
 	
 	for i in range(wp_ch):
 		wp_dot.get_child(i).get_node('dot').pressed = true
-		wp_dot.get_child(i).get_node('dot').disabled = true
+		wp_dot.get_child(i).get_node('dot').disabled = false
 		wp_dot.get_child(i).get_node('check').disabled = true
 
 	for i in range(WP):
 		wp_dot.get_child(i).get_node('dot').disabled = false
+		wp_dot.get_child(i).get_node('dot').pressed = false
 		wp_dot.get_child(i).get_node('check').disabled = false
 
 func set_moral():
@@ -171,10 +172,11 @@ func set_moral():
 	var moral_ch = moral_dot.get_children().size()
 	
 	for i in range(moral_ch):
+		moral_dot.get_child(i).set_pressed(1)
 		moralArr.append(i)
 	
 	for i in range(MORAL):
-		moral_dot.get_child(moralArr[i]).set_pressed(1)
+		moral_dot.get_child(moralArr[i]).set_pressed(0)
 """
 func save():
 	var List = [ 'mental', 'physical', 'social']
@@ -197,6 +199,21 @@ func save_data():
 	
 	save_game.close()
 
+func load_data():
+	var save_game = File.new()
+	if !save_game.file_exists('res://savegame.save'):
+		return # No save file to load!
+		
+	var save_nodes = get_tree().get_nodes_in_group('saveData')
+#	for i in save_nodes:
+#		i.queue_free()
+		
+	save_game.open('res://savegame.save', File.READ )
+	while !save_game.eof_reached():
+		var current_line = parse_json(save_game.get_line())
+		
+	save_game.close()
+
 func _ready():
 	if OS.get_name()=="HTML5":
 		OS.set_window_maximized(true)
@@ -206,6 +223,7 @@ func _ready():
 	
 	calcs()
 #	save()
+	load_data()
 	set_moral()
 	set_process(false)
 	set_physics_process(false)

@@ -15,9 +15,9 @@ func _on_dot_toggled(btn):
 
 func count(b):
 	if b != false:
-		value += 1
-	else:
 		value -= 1
+	else:
+		value += 1
 	hint_tooltip = str(value)
 
 func _ready():
