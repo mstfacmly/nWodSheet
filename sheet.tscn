@@ -140,7 +140,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="player" type="VBoxContainer" parent="scroll/margin/org/info" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1129,7 +1128,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="SKILLS" type="VBoxContainer" parent="scroll/margin/org/advantages" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1172,7 +1170,6 @@ _sections_unfolded = [ "Size Flags", "Theme" ]
 
 [node name="mental" type="VBoxContainer" parent="scroll/margin/org/advantages/SKILLS" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1238,7 +1235,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="list" type="VBoxContainer" parent="scroll/margin/org/advantages/SKILLS/mental" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -2623,7 +2619,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="OTHER" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -3830,7 +3825,6 @@ _sections_unfolded = [ "Size Flags", "Theme" ]
 
 [node name="values" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -3852,7 +3846,6 @@ _sections_unfolded = [ "Grow Direction", "Size Flags" ]
 
 [node name="1" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -5613,7 +5606,6 @@ _sections_unfolded = [ "Margin", "Size Flags" ]
 
 [node name="MORAL" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -5631,6 +5623,7 @@ size_flags_stretch_ratio = 0.2
 alignment = 1
 script = ExtResource( 17 )
 _sections_unfolded = [ "Size Flags" ]
+value = 0
 
 [node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL" index="0"]
 

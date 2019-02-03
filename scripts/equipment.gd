@@ -5,17 +5,16 @@ onready var sheet = get_node('/root/base')
 func new_text(x):
 	$name.text = x
 	save()
-	sheet.call('save_data')
+#	sheet.call('save_data')
 
 func new_val(x):
 	$value.text = x
 	save()
-	sheet.call('save_data')
+#	sheet.call('save_data')
 
 func save():
-	var data = { $name.text : $value.text }
-	return data
-	sheet.call('save_data')
+	SaveDict.dict[$name.get_text()] = $value.get_text()
+#	sheet.call('save_data')
 
 func _ready():
 	$name.connect('focus_exited', self , 'save')

@@ -26,9 +26,7 @@ func set_checked(a):
 	sheet.call('save_data')
 
 func save():
-	var specialty = { skillParent.get_name() + ' specialties' : checked }
-	return specialty
-#	print(specialty)
+	SaveDict.dict[skillParent.get_name()] = str(' specialties', checked)
 
 func _ready():
 	get_popup().connect('index_pressed', self, 'set_checked')

@@ -6,14 +6,16 @@ onready var label = get_position_in_parent()
 var xp_data
 
 func experience(i):
-	xp_data = { get_parent().get_child(label - 1).get_text() : i }
-	return xp_data
+	SaveDict.dict[get_parent().get_child(label - 1).get_text()] = i
+#	xp_data = { get_parent().get_child(label - 1).get_text() : i }
+#	return xp_data
 #	save()
 	sheet.call('save_data')
 
 func save():
-	xp_data = { get_parent().get_child(label - 1).get_text() : get_text() }
-	return xp_data
+	SaveDict.dict[get_parent().get_child(label - 1).get_text()] = get_text()
+#	xp_data = { get_parent().get_child(label - 1).get_text() : get_text() }
+#	return xp_data
 #	print(xp_data)
 
 func _ready():

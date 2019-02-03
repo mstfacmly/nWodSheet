@@ -14,6 +14,10 @@ config/name="nWoD Character Sheet"
 run/main_scene="res://sheet.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SaveDict="*res://scripts/save_dict.gd"
+
 [display]
 
 window/size/width=960

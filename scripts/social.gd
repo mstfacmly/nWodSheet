@@ -15,7 +15,6 @@ func set_skills():
 	for i in children:
 		$list.get_child(i).get_node('label').set_text(str(skill[i]).capitalize())
 		$list.get_child(i).set_name(str(skill[i]))
-		$list.get_child(i).add_to_group('saveData')
 
 func set_specialties():
 	for i in skill:
@@ -24,6 +23,3 @@ func set_specialties():
 			skillName.get_popup().add_check_item(s.capitalize())
 			skillName.get_popup().set_item_as_checkable(int(s), 1)
 			skillName.add_to_group('saveData')
-
-func _ready():
-	pass

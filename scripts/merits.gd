@@ -4,8 +4,13 @@ func update_text(i):
 	save()
 
 func save():
+	if $input.get_text().empty():
+		SaveDict.dict[get_name()] = value
+	else:
+		SaveDict.dict[$input.get_text()] = value
+	"""
 	var dict = { $input.get_text() : value }
-	return dict
+	return dict"""
 
 func _ready():
 	value = 0

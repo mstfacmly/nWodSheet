@@ -193,28 +193,36 @@ func save_data():
 	
 	var SaveNodes = get_tree().get_nodes_in_group('saveData')
 	
+	
 	for i in SaveNodes:
 		var node_data = i.call('save')
-		save_game.store_line(to_json(node_data))
+#		save_game.store_string(to_json(node_data))
+	
+	save_game.store_line(to_json(SaveDict.dict))
 	
 	save_game.close()
 
 func load_data():
+	print('loading sheet...')
 	var save_game = File.new()
-	if !save_game.file_exists('res://savegame.save'):
+	if not save_game.file_exists('res://savegame.save'):
 		return # No save file to load!
 		
-	var save_nodes = get_tree().get_nodes_in_group('saveData')
-#	for i in save_nodes:
-#		i.queue_free()
-		
 	save_game.open('res://savegame.save', File.READ )
-	while !save_game.eof_reached():
+	while not save_game.eof_reached():
+		var save_nodes = get_tree().get_nodes_in_group('setData')
 		var current_line = parse_json(save_game.get_line())
+		
+		if typeof(current_line) == TYPE_DICTIONARY:
+			for i in current_line.keys():
+				print(i,current_line[i])
+				set(i, current_line[i])
 		
 	save_game.close()
 
 func _ready():
+	load_data()
+	
 	if OS.get_name()=="HTML5":
 		OS.set_window_maximized(true)
 	
@@ -222,8 +230,6 @@ func _ready():
 	Physics2DServer.set_active(false)
 	
 	calcs()
-#	save()
-	load_data()
 	set_moral()
 	set_process(false)
 	set_physics_process(false)

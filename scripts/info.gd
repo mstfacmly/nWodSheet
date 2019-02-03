@@ -9,8 +9,9 @@ func new_text(x):
 	sheet.call('save_data')
 
 func save():
-	var data = { get_name() : text_input }
-	return data
+	SaveDict.dict[get_name()] = text_input
+#	var data = { get_name() : text_input }
+#	return data
 
 func _ready():
 	$input.connect('text_entered', self , 'new_text')

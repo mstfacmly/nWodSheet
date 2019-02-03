@@ -6,9 +6,10 @@ func set_group():
 	elif !$check.pressed:
 		$check.remove_from_group('specialty')
 """
+"""
 func save():
 	var dict = { get_name() : value }
 	return dict
-
+"""
 func _ready():
 	value = 0

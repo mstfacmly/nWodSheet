@@ -8,6 +8,14 @@ export var value = 0
 onready var sheet = get_node('/root/base')
 #onready var health = find_node('HEALTH', 1 )
 
+func set_pressed():
+	for i in value:
+		find_node('btn').set_pressed(0)
+
+func save():
+	SaveDict.dict[get_name()] = value
+#	return SaveDict.dict
+
 func _on_dot_toggled(btn):
 	count(btn)
 	emit_signal('recalc')
@@ -29,6 +37,7 @@ func _ready():
 #		print(is_connected('recalc', sheet, 'calcs'))
 	add_to_group('saveData')
 	hint_tooltip = str(value)
+	set_pressed()
 	set_physics_process(false)
 	set_process(false)
 	PhysicsServer.set_active(false)

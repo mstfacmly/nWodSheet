@@ -4,11 +4,13 @@ onready var sheet = get_node('/root/base')
 var value
 
 func save():
-	var data = { get_parent().get_name() : value }
-	return data
+	SaveDict.dict[get_parent().get_name()] = value
+#	var data = { get_parent().get_name() : value }
+#	return data
 
 func value_select(a):
-	value = get_item_text(a)
+	value = a
+#	value = get_item_text(a)
 	save()
 	sheet.call('save_data')
 

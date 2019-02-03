@@ -7,6 +7,10 @@ var skillset
 func save():
 	pass
 
+func set_skills():
+	for i in children:
+		$list.get_child(i).add_to_group('saveData')
+
 func get_skill_id(i):
 	skillset = $list.get_child(i).get_node('SPECIALTIES').get_popup()
 

@@ -1,6 +1,7 @@
 extends MenuButton
 
 var Damage = [ ' ', '/', '✶X' , '✶✶✶✶✶*' ]
+var val = ' '
 
 onready var sheet = get_node('/root/base')
 
@@ -10,15 +11,18 @@ func populate():
 			get_popup().add_item(i)
 
 func set_text(i):
+	val = i
 	text = Damage[i]
 	save()
-	sheet.call('save_data')
+#	sheet.call('save_data')
 
 func save():
-	var data = text
-	return data
-#	for i in Damage:
-#		get_text()
+#	SaveDict.dict[sheet.find_node('HEALTH').get_name()] = str(text)
+#	var data = text
+#	return data
+	print(get_text())
+	for i in Damage:
+		SaveDict.dict[sheet.find_node('HEALTH').get_name() + get_parent().get_name()] = get_text()
 
 func _ready():
 	populate()
