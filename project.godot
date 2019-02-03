@@ -10,13 +10,13 @@ config_version=3
 
 [application]
 
-config/name="nWoD Character Sheet"
+config/name="Chronicles of Darkness Sheet"
 run/main_scene="res://sheet.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-SaveDict="*res://scripts/save_dict.gd"
+Global="*res://scripts/global.gd"
 
 [display]
 

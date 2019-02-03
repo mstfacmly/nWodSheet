@@ -13,7 +13,7 @@ func new_val(x):
 #	sheet.call('save_data')
 
 func save():
-	SaveDict.dict[$name.get_text()] = $value.get_text()
+	Global.dict[$name.get_text()] = $value.get_text()
 #	sheet.call('save_data')
 
 func _ready():

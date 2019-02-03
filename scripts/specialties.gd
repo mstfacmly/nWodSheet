@@ -16,17 +16,16 @@ func set_checked(a):
 		checked.remove(a)
 	
 	checked.sort()
-	"""	
+	
 	if !checked.empty():
-		add_stylebox_override('normal', load('res://assets/styleboxes/selected.tres'))
+		add_stylebox_override('normal', load('res://assets/styleboxes/selectedSpecialty.tres'))
 	else:
 		add_stylebox_override('normal', load('res://assets/styleboxes/white_dark.tres'))
-	"""
-	save()
+	
 	sheet.call('save_data')
 
 func save():
-	SaveDict.dict[skillParent.get_name()] = str(' specialties', checked)
+	Global.dict[skillParent.get_name()] = str(' specialties', checked)
 
 func _ready():
 	get_popup().connect('index_pressed', self, 'set_checked')

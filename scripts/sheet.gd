@@ -1,12 +1,16 @@
 extends Node
 
+# Name Variables
+const GAMENAME = 'chronicles of darkness'
+const MORALNAME = 'integrity'
+const ENERGYNAME = 'energy'
+
 # Set variables
 var SPEED = 0
 var HEALTH = 0
 var WP = 0
 export var SIZE = 5
 export var MORAL = 7
-var MORALNAME = 'integrity'
 var INIT = 0
 var DEF = 0
 var size = SIZE
@@ -169,23 +173,33 @@ func updt_wp():
 
 func set_moral():
 	var moral_dot = moral.get_node('values')
+	var moral_dotV = moral.get_node('valuesVert')
 	var moral_ch = moral_dot.get_children().size()
+	var moralArrInv = []
 	
 	for i in range(moral_ch):
 		moral_dot.get_child(i).set_pressed(1)
+		moral_dotV.get_child(i).get_node('dot').set_pressed(1)
 		moralArr.append(i)
+		moralArrInv.append(i)
+	
+	moralArrInv.invert()
+	
+	for i in range(moral_ch):
+		moral_dotV.get_child(i).get_node('label').set_text(str(moralArrInv[i]+1))
 	
 	for i in range(MORAL):
 		moral_dot.get_child(moralArr[i]).set_pressed(0)
+		moral_dotV.get_child(moralArrInv[i]).get_node('dot').set_pressed(0)
 """
 func save():
 	var List = [ 'mental', 'physical', 'social']
-	var SaveDict = []
+	var Global = []
 	for l in List.size():
 		for i in $scroll/margin/org/advantages/SKILLS.get_node(List[l]).get(List[l]):
-			SaveDict.append(i)
-	SaveDict.sort()
-	return SaveDict
+			Global.append(i)
+	Global.sort()
+	return Global
 """
 func save_data():
 	var save_game = File.new()
@@ -198,7 +212,7 @@ func save_data():
 		var node_data = i.call('save')
 #		save_game.store_string(to_json(node_data))
 	
-	save_game.store_line(to_json(SaveDict.dict))
+	save_game.store_line(to_json(Global.dict))
 	
 	save_game.close()
 
@@ -233,4 +247,5 @@ func _ready():
 	set_moral()
 	set_process(false)
 	set_physics_process(false)
+	$scroll/margin/org/title.set_text(GAMENAME.capitalize())
 	gameXP.connect('text_entered', self, 'calc_xp')

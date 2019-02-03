@@ -13,7 +13,7 @@ func set_pressed():
 		find_node('btn').set_pressed(0)
 
 func save():
-	SaveDict.dict[get_name()] = value
+	Global.dict[get_name()] = value
 #	return SaveDict.dict
 
 func _on_dot_toggled(btn):

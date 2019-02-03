@@ -6,13 +6,13 @@ var text_input
 
 func new_text(x):
 	text_input = x
+	save()
 	sheet.call('save_data')
 
 func save():
-	SaveDict.dict[get_name()] = text_input
-#	var data = { get_name() : text_input }
-#	return data
+	Global.dict[get_name()] = text_input
 
 func _ready():
 	$input.connect('text_entered', self , 'new_text')
+	$input.connect('tree_exited', self, 'new_text')
 	add_to_group('saveData')

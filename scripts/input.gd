@@ -9,5 +9,3 @@ func _text_changed():
 
 func _ready():
 	connect('text_changed', sheet, 'updt_size')
-#	print(is_connected('text_changed', sheet, 'updt_size'))
-	pass

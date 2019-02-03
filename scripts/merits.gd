@@ -1,16 +1,13 @@
 extends 'res://scripts/DotCount.gd'
 
 func update_text(i):
-	save()
+	sheet.call('save_data')
 
 func save():
 	if $input.get_text().empty():
-		SaveDict.dict[get_name()] = value
+		Global.dict[get_name()] = value
 	else:
-		SaveDict.dict[$input.get_text()] = value
-	"""
-	var dict = { $input.get_text() : value }
-	return dict"""
+		Global.dict[$input.get_text()] = value
 
 func _ready():
 	value = 0
