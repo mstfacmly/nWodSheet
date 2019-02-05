@@ -18,7 +18,7 @@ func _on_dot_toggled(btn):
 	emit_signal('xp_spend', self)
 
 func count(b):
-	if b != 0:
+	if b != false:
 		value -= 1
 	else:
 		value += 1

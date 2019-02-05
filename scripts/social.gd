@@ -1,12 +1,12 @@
 extends 'res://scripts/skillset.gd'
 
-var skill = [ 'ANIMAL_KEN', 'EMPATHY', 'EXPRESSION', 'INTIMIDATION', 'PERSUATION', 'SOCIALIZE', 'STREETWISE', 'SUBTERFUGE' ]
+var skill = [ 'ANIMAL_KEN', 'EMPATHY', 'EXPRESSION', 'INTIMIDATION', 'PERSUASION', 'SOCIALIZE', 'STREETWISE', 'SUBTERFUGE' ]
 
 var ANIMAL_KEN = [ 'animal needs', 'imminent attack', 'specific kind of animal', 'training' ]
 var EMPATHY = [ 'emotion', 'lies', 'motives', 'personalities' ]
 var EXPRESSION = [ 'classical dance', 'drama', 'exposés', 'musical instrument', 'newspaper articles', 'speeches' ]
 var INTIMIDATION = [ 'bluster', 'physical threats', 'stare-downs', 'torture', 'veiled threats' ]
-var PERSUATION = [ 'fast-talking', 'inspiring troops', 'motivational speeches', 'sales pitches', 'seduction' ]
+var PERSUASION = [ 'fast-talking', 'inspiring troops', 'motivational speeches', 'sales pitches', 'seduction' ]
 var SOCIALIZE = [ 'bar hopping', 'dress balls', 'formal events', 'frat parties', 'state dinners' ]
 var STREETWISE = [ 'black market', 'gangs', 'rumours', 'undercover operations' ]
 var SUBTERFUGE = [ 'con jobs', 'hiding emotions', 'lying', 'misdirection', 'spotting lies' ]

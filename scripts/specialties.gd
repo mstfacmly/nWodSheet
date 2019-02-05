@@ -25,7 +25,8 @@ func set_checked(a):
 	sheet.call('save_data')
 
 func save():
-	Global.dict['skills'][skillParent.get_name()] = str(' specialties', checked)
+	pass
+#	Global.dict['skills'][skillParent.get_name()] = str(' specialties', checked)
 
 func _ready():
 	get_popup().connect('index_pressed', self, 'set_checked')

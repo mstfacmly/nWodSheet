@@ -1,7 +1,7 @@
 extends 'res://scripts/DotCount.gd'
 
 func save():
-	Global.dict['attributes'][get_name()] = value
+	Global.dict['attributes'][get_name()] = {'value' : value}
 
 func _ready():
 	value = 1

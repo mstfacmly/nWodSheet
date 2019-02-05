@@ -22,7 +22,10 @@ func save():
 #	return data
 #	print(get_text())
 	for i in Damage:
-		Global.dict['data'][sheet.find_node('HEALTH').get_name() + get_parent().get_name()] = get_text()
+		if !get_text().empty():
+			Global.dict['data'][sheet.find_node('HEALTH').get_name() + get_parent().get_name()] = get_text()
+		else:
+			return
 
 func _ready():
 	populate()
