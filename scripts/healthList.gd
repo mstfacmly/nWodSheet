@@ -20,13 +20,11 @@ func save():
 #	SaveDict.dict[sheet.find_node('HEALTH').get_name()] = str(text)
 #	var data = text
 #	return data
-	print(get_text())
+#	print(get_text())
 	for i in Damage:
-		Global.dict[sheet.find_node('HEALTH').get_name() + get_parent().get_name()] = get_text()
+		Global.dict['data'][sheet.find_node('HEALTH').get_name() + get_parent().get_name()] = get_text()
 
 func _ready():
 	populate()
 	get_popup().connect('id_pressed', self, 'set_text')
-	PhysicsServer.set_active(false)
-	Physics2DServer.set_active(false)
 	add_to_group('saveData')

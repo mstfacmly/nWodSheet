@@ -4,17 +4,14 @@ onready var sheet = get_node('/root/base')
 
 func new_text(x):
 	$name.text = x
-	save()
-#	sheet.call('save_data')
+	sheet.call('save_data')
 
 func new_val(x):
 	$value.text = x
-	save()
-#	sheet.call('save_data')
+	sheet.call('save_data')
 
 func save():
-	Global.dict[$name.get_text()] = $value.get_text()
-#	sheet.call('save_data')
+	Global.dict['equipment'][$name.get_text()] = $value.get_text()
 
 func _ready():
 	$name.connect('focus_exited', self , 'save')

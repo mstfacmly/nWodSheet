@@ -1,4 +1,11 @@
 extends Node
 
-var dict = {}
-onready var sheet = find_node('base')
+var dict = { 
+'info' : {} , 
+'attributes' : {} ,
+'skills' : {} ,
+'backgrounds' : {} ,
+'equipment' : {} ,
+'xp' : {} ,
+'data': {}
+}

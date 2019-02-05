@@ -7,7 +7,7 @@ func update_text(i):
 	sheet.call('save_data')
 
 func save():
-	Global.dict[get_name()] = text
+	Global.dict['data'][get_name()] = text
 
 func _ready():
 	add_to_group('saveData')

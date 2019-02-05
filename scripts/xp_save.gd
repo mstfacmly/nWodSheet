@@ -9,8 +9,9 @@ func experience(i):
 	sheet.call('save_data')
 
 func save():
-	Global.dict[get_parent().get_child(label - 1).get_text()] = get_text()
+	Global.dict['xp'][get_parent().get_child(label - 1).get_text()] = get_text()
 
 func _ready():
 	add_to_group('saveData')
 	connect('text_entered', self, 'experience')
+	connect('focus_exited', self, 'save')

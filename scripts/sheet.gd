@@ -11,6 +11,7 @@ var HEALTH = 0
 var WP = 0
 export var SIZE = 5
 export var MORAL = 7
+export var ENERGY = 1
 var INIT = 0
 var DEF = 0
 var size = SIZE
@@ -48,20 +49,19 @@ func calcs():
 	calc_wp()
 	calc_def()
 	calc_init()
-#	save()
-	save_data()
-"""	test()
 
-func test():
-	for s in skills.get_children():
-		if VBoxContainer:
-			for r in find_node('list').get_children().size():
-				print(find_node('list').get_child(r).get_name(), find_node('list').get_child(r).get_child(2))
-"""
 func spend_xp(n):
 	var xp_cost
+	
+	## New World of Darkness costs
+	var attrCost = n.value * 5
+	var skillCost = n.value * 3
+	var skillSpecCost = 3
+	var meritCost = n.value * 2
+	var moralCost = n.value * 3
+	var wpCost = 0
 	"""
-	Chronicles of Darkness/GodMachine costs
+	## Chronicles of Darkness/GodMachine costs
 	var attrCost = 4
 	var skillCost = 2
 	var skillSpecCost = 1
@@ -69,36 +69,41 @@ func spend_xp(n):
 	var moralCost = 3
 	var wpCost = 1
 	"""
-	## NOTE: move spending costs to individual scripts?
 	if n.get_node('../..').get_name() == 'ATTRIBUTES':
-		xp_cost = (n.value) * 5
-		if xp_cost < int(availXP.text):
+		xp_cost = attrCost
+		if xp_cost <= int(availXP.text):
 			calc_spend(xp_cost)
-			print(xp_cost)
 		else:
 			pass
-	elif n.get_node('../../..').get_name() == 'SKILLS' or n.get_node('../../..').get_name() == 'INTEGRITY' :
-		xp_cost = (n.value) * 3
-		if xp_cost < int(availXP.text):
+	elif n.get_node('../../..').get_name() == 'SKILLS':
+		xp_cost = skillCost
+		if xp_cost <= int(availXP.text):
 			calc_spend(xp_cost)
-			print(xp_cost)
 		else:
 			pass
 	elif n.get_node('../..').get_name() == 'MERITS':
-		print('value from sheet : ', n.value)
-		xp_cost = (n.value) * 2
-		if xp_cost < int(availXP.text):
+		#print('value from sheet : ', n.value)
+		xp_cost = meritCost
+		if xp_cost <= int(availXP.text):
 			calc_spend(xp_cost)
 		else:
 			pass
-	elif n.get_child(2):
-		xp_cost = 3
-		if xp_cost < int(availXP.text):
+	elif n.get_node('../../..').get_name() == 'MORAL':
+		xp_cost = moralCost
+		if xp_cost <= int(availXP.text):
+			calc_spend(xp_cost) 
+		else:
+			pass
+	elif n.get_child(1):
+		xp_cost = skillSpecCost
+		if xp_cost <= int(availXP.text):
 			calc_spend(xp_cost)
 		else:
 			pass
 	else:
 		print(n.get_name())
+	
+	save_data()
 
 func calc_xp(xp):
 #	print(xp)
@@ -143,6 +148,8 @@ func updt_size():
 		size = int(size_text)
 	else:
 		size = SIZE
+		
+	calc_health()
 
 func updt_health():
 	var health_dot = health.get_node('values')
@@ -217,35 +224,35 @@ func save_data():
 	save_game.close()
 
 func load_data():
-	print('loading sheet...')
 	var save_game = File.new()
-	if not save_game.file_exists('res://savegame.save'):
+	if !save_game.file_exists('res://savegame.save'):
+		print('no sheet data to load! skipping...')
 		return # No save file to load!
-		
+	else:
+		print('loading sheet...')
 	save_game.open('res://savegame.save', File.READ )
-	while not save_game.eof_reached():
-		var save_nodes = get_tree().get_nodes_in_group('setData')
-		var current_line = parse_json(save_game.get_line())
-		
-		if typeof(current_line) == TYPE_DICTIONARY:
-			for i in current_line.keys():
-				print(i,current_line[i])
-				set(i, current_line[i])
-		
+#	print(parse_json(save_game.get_as_text()))
+	var load_data = parse_json(save_game.get_as_text())
+	for i in load_data.keys():
+		print(i)
+#		set(i, load_data[i])
+	"""
+	while !save_game.eof_reached():
+		var load_data = parse_json(save_game.get_line())
+		if typeof(load_data) == TYPE_ARRAY:
+			for i in load_data.keys():
+#				print(i,load_data[i])
+				set(i, load_data[i])
+				"""
 	save_game.close()
 
 func _ready():
 	load_data()
 	
 	if OS.get_name()=="HTML5":
-		OS.set_window_maximized(true)
-	
-	PhysicsServer.set_active(false)
-	Physics2DServer.set_active(false)
+		OS.set_window_maximized(1)
 	
 	calcs()
 	set_moral()
-	set_process(false)
-	set_physics_process(false)
 	$scroll/margin/org/title.set_text(GAMENAME.capitalize())
 	gameXP.connect('text_entered', self, 'calc_xp')

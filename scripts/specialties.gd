@@ -25,10 +25,8 @@ func set_checked(a):
 	sheet.call('save_data')
 
 func save():
-	Global.dict[skillParent.get_name()] = str(' specialties', checked)
+	Global.dict['skills'][skillParent.get_name()] = str(' specialties', checked)
 
 func _ready():
 	get_popup().connect('index_pressed', self, 'set_checked')
 	add_stylebox_override('normal', load('res://assets/styleboxes/white_dark.tres'))
-	PhysicsServer.set_active(false)
-	Physics2DServer.set_active(false)

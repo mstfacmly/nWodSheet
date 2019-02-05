@@ -5,9 +5,9 @@ func update_text(i):
 
 func save():
 	if $input.get_text().empty():
-		Global.dict[get_name()] = value
+		Global.dict['backgrounds'][get_name()] = value
 	else:
-		Global.dict[$input.get_text()] = value
+		Global.dict['backgrounds'][$input.get_text()] = value
 
 func _ready():
 	value = 0

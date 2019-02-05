@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/sheetTheme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/sheet.gd" type="Script" id=2]
@@ -13,13 +13,14 @@
 [ext_resource path="res://scripts/merits.gd" type="Script" id=11]
 [ext_resource path="res://subElements/dot.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scripts/textsave.gd" type="Script" id=13]
-[ext_resource path="res://scripts/equipment.gd" type="Script" id=14]
-[ext_resource path="res://scripts/xp_save.gd" type="Script" id=15]
-[ext_resource path="res://subElements/healthBox.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/energy.gd" type="Script" id=17]
-[ext_resource path="res://scripts/moral.gd" type="Script" id=18]
-[ext_resource path="res://assets/styleboxes/white_dark.tres" type="StyleBox" id=19]
-[ext_resource path="res://assets/styleboxes/white_line.tres" type="StyleBox" id=20]
+[ext_resource path="res://scripts/size.gd" type="Script" id=14]
+[ext_resource path="res://scripts/equipment.gd" type="Script" id=15]
+[ext_resource path="res://scripts/xp_save.gd" type="Script" id=16]
+[ext_resource path="res://subElements/healthBox.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/energy.gd" type="Script" id=18]
+[ext_resource path="res://scripts/moral.gd" type="Script" id=19]
+[ext_resource path="res://assets/styleboxes/white_dark.tres" type="StyleBox" id=20]
+[ext_resource path="res://assets/styleboxes/white_line.tres" type="StyleBox" id=21]
 
 [node name="base" type="Panel" index="0"]
 
@@ -39,8 +40,12 @@ size_flags_vertical = 1
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Anchor", "Mouse", "Pause", "Rect", "Size Flags", "custom_constants" ]
+__meta__ = {
+"_edit_lock_": true
+}
 SIZE = 5
 MORAL = 7
+ENERGY = 1
 
 [node name="scroll" type="ScrollContainer" parent="." index="0"]
 
@@ -124,7 +129,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="info" type="HBoxContainer" parent="scroll/margin/org" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -143,7 +147,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="player" type="VBoxContainer" parent="scroll/margin/org/info" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -158,6 +161,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Focus", "Margin", "Size Flags" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="name" type="HBoxContainer" parent="scroll/margin/org/info/player" index="0"]
 
@@ -870,6 +876,9 @@ size_flags_horizontal = 5
 size_flags_vertical = 1
 alignment = 1
 _sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="labels" type="VBoxContainer" parent="scroll/margin/org/ATTRIBUTES" index="0"]
 
@@ -889,6 +898,9 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 alignment = 0
 _sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="pow" type="Label" parent="scroll/margin/org/ATTRIBUTES/labels" index="0"]
 
@@ -994,6 +1006,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Focus", "Margin", "Size Flags" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="INTELLIGENCE" parent="scroll/margin/org/ATTRIBUTES/mental" index="0" instance=ExtResource( 6 )]
 
@@ -1048,6 +1063,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Focus", "Margin", "Size Flags" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="STRENGTH" parent="scroll/margin/org/ATTRIBUTES/physical" index="0" instance=ExtResource( 6 )]
 
@@ -1102,6 +1120,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Focus", "Margin", "Size Flags" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="PRESENCE" parent="scroll/margin/org/ATTRIBUTES/social" index="0" instance=ExtResource( 6 )]
 
@@ -1137,6 +1158,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="SKILLS" type="VBoxContainer" parent="scroll/margin/org/advantages" index="0"]
 
@@ -1155,6 +1179,9 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
 alignment = 0
 _sections_unfolded = [ "Size Flags", "Theme" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="label" type="Label" parent="scroll/margin/org/advantages/SKILLS" index="0"]
 
@@ -1182,7 +1209,6 @@ _sections_unfolded = [ "Size Flags", "Theme" ]
 
 [node name="mental" type="VBoxContainer" parent="scroll/margin/org/advantages/SKILLS" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1200,6 +1226,10 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 7 )
 _sections_unfolded = [ "Hint", "Size Flags" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="label" type="Label" parent="scroll/margin/org/advantages/SKILLS/mental" index="0"]
 
@@ -1248,7 +1278,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="list" type="VBoxContainer" parent="scroll/margin/org/advantages/SKILLS/mental" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1339,6 +1368,10 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 9 )
 _sections_unfolded = [ "Size Flags", "Theme" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="label" type="Label" parent="scroll/margin/org/advantages/SKILLS/physical" index="0"]
 
@@ -1471,6 +1504,10 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 10 )
 _sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="label" type="Label" parent="scroll/margin/org/advantages/SKILLS/social" index="0"]
 
@@ -1658,10 +1695,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 _sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="BACKGROUNDS" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1680,7 +1719,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="MERITS" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1720,7 +1758,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="merit" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1738,7 +1775,6 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 11 )
 _sections_unfolded = [ "Size Flags" ]
-value = 0
 
 [node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit" index="0"]
 
@@ -1831,7 +1867,6 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 11 )
 _sections_unfolded = [ "Size Flags" ]
-value = 0
 
 [node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit2" index="0"]
 
@@ -1923,7 +1958,6 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 11 )
 _sections_unfolded = [ "Size Flags" ]
-value = 0
 
 [node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit3" index="0"]
 
@@ -2015,7 +2049,6 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 11 )
 _sections_unfolded = [ "Size Flags" ]
-value = 0
 
 [node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit4" index="0"]
 
@@ -2107,7 +2140,6 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 11 )
 _sections_unfolded = [ "Size Flags" ]
-value = 0
 
 [node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit5" index="0"]
 
@@ -2199,7 +2231,6 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 11 )
 _sections_unfolded = [ "Size Flags" ]
-value = 0
 
 [node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit6" index="0"]
 
@@ -2291,7 +2322,6 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 11 )
 _sections_unfolded = [ "Size Flags" ]
-value = 0
 
 [node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit7" index="0"]
 
@@ -2383,7 +2413,6 @@ size_flags_stretch_ratio = 0.5
 alignment = 0
 script = ExtResource( 11 )
 _sections_unfolded = [ "Size Flags" ]
-value = 0
 
 [node name="input" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8" index="0"]
 
@@ -2578,7 +2607,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="OTHER" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -2598,7 +2626,6 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="SIZE" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -2660,6 +2687,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
+script = ExtResource( 14 )
 _sections_unfolded = [ "Caret", "Placeholder" ]
 
 [node name="SPEED" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER" index="1"]
@@ -3155,7 +3183,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="name" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip" index="0"]
@@ -3224,7 +3252,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="name" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip2" index="0"]
@@ -3293,7 +3321,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="name" type="LineEdit" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EQUIPMENT/equip3" index="0"]
@@ -3467,7 +3495,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="sep2" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="3"]
@@ -3535,7 +3563,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="1" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/game" index="6"]
@@ -3636,7 +3664,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="sep2" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/EXPERIENCE/info" index="3"]
@@ -3704,7 +3732,7 @@ placeholder_alpha = 0.6
 caret_blink = true
 caret_blink_speed = 0.65
 caret_position = 0
-script = ExtResource( 15 )
+script = ExtResource( 16 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="sep2" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits" index="2"]
@@ -3724,10 +3752,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 _sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LIFE" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -3745,6 +3775,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 _sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="HEALTH" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="0"]
 
@@ -3790,6 +3823,7 @@ _sections_unfolded = [ "Size Flags", "Theme" ]
 
 [node name="values" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -3809,7 +3843,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Grow Direction", "Size Flags" ]
 
-[node name="1" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="0"]
+[node name="0" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -3827,19 +3861,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/1" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/0" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/1" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/0" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="2" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="1"]
+[node name="1" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="1"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -3858,19 +3892,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/2" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/1" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/2" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/1" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="3" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="2"]
+[node name="2" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -3889,19 +3923,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/3" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/2" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/3" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/2" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="4" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="3"]
+[node name="3" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -3920,19 +3954,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/4" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/3" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/4" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/3" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="5" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="4"]
+[node name="4" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="4"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -3951,19 +3985,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/5" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/4" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/5" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/4" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="6" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="5"]
+[node name="5" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="5"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -3982,19 +4016,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/6" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/5" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/6" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/5" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="7" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="6"]
+[node name="6" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="6"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -4013,19 +4047,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/7" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/6" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/7" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/6" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="8" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="7"]
+[node name="7" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="7"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -4044,19 +4078,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/8" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/7" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/8" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/7" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="9" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="8"]
+[node name="8" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="8"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -4075,19 +4109,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/9" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/8" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/9" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/8" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="10" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="9"]
+[node name="9" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="9"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -4106,19 +4140,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/10" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/9" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/10" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/9" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="11" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="10"]
+[node name="10" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="10"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -4137,19 +4171,19 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/11" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/10" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/11" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/10" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
 disabled = true
 
-[node name="12" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="11"]
+[node name="11" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values" index="11"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -4168,13 +4202,13 @@ size_flags_vertical = 0
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/12" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/11" index="0" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 12.0
 
-[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/12" index="1" instance=ExtResource( 16 )]
+[node name="box" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/11" index="1" instance=ExtResource( 17 )]
 
 margin_top = 16.0
 margin_bottom = 37.0
@@ -4242,7 +4276,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Grow Direction", "Size Flags" ]
 
-[node name="1" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="0"]
+[node name="0" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -4250,6 +4284,56 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 16.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/0" index="0" instance=ExtResource( 12 )]
+
+margin_left = 2.0
+margin_right = 14.0
+margin_bottom = 12.0
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/0" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 16.0
+margin_right = 16.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
+
+[node name="1" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_right = 36.0
 margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -4291,15 +4375,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="2" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="1"]
+[node name="2" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_right = 36.0
+margin_left = 40.0
+margin_right = 56.0
 margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -4341,15 +4425,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="3" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="2"]
+[node name="3" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 40.0
-margin_right = 56.0
+margin_left = 60.0
+margin_right = 76.0
 margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -4391,15 +4475,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="4" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="3"]
+[node name="4" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="4"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 60.0
-margin_right = 76.0
+margin_left = 80.0
+margin_right = 96.0
 margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -4441,15 +4525,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="5" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="4"]
+[node name="5" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="5"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 80.0
-margin_right = 96.0
+margin_left = 100.0
+margin_right = 116.0
 margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -4491,15 +4575,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="6" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="5"]
+[node name="6" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="6"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 100.0
-margin_right = 116.0
+margin_left = 120.0
+margin_right = 136.0
 margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -4541,15 +4625,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="7" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="6"]
+[node name="7" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="7"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 120.0
-margin_right = 136.0
+margin_left = 140.0
+margin_right = 156.0
 margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -4591,15 +4675,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="8" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="7"]
+[node name="8" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="8"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 140.0
-margin_right = 156.0
+margin_left = 160.0
+margin_right = 176.0
 margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -4641,57 +4725,7 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[node name="9" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="8"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 160.0
-margin_right = 176.0
-margin_bottom = 35.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 0
-_sections_unfolded = [ "Rect", "Size Flags" ]
-
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/9" index="0" instance=ExtResource( 12 )]
-
-margin_left = 2.0
-margin_right = 14.0
-margin_bottom = 12.0
-
-[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/9" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 16.0
-margin_right = 16.0
-margin_bottom = 35.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 2
-size_flags_vertical = 4
-disabled = true
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = false
-align = 0
-_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
-
-[node name="10" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="9"]
+[node name="9" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values" index="9"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -4710,13 +4744,13 @@ size_flags_vertical = 4
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/10" index="0" instance=ExtResource( 12 )]
+[node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/9" index="0" instance=ExtResource( 12 )]
 
 margin_left = 2.0
 margin_right = 14.0
 margin_bottom = 12.0
 
-[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/10" index="1"]
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/WILLPOWER/values/9" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -4759,7 +4793,7 @@ size_flags_horizontal = 5
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 alignment = 0
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY" index="0"]
@@ -4804,7 +4838,7 @@ size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Grow Direction", "Size Flags" ]
 
-[node name="1" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="0"]
+[node name="0" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -4812,6 +4846,77 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 16.0
+margin_bottom = 42.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values/0" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 16.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values/0" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 16.0
+margin_bottom = 42.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.1
+disabled = true
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="1" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_right = 36.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -4874,15 +4979,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="2" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="1"]
+[node name="2" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_right = 36.0
+margin_left = 40.0
+margin_right = 56.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -4945,15 +5050,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="3" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="2"]
+[node name="3" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 40.0
-margin_right = 56.0
+margin_left = 60.0
+margin_right = 76.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -5016,15 +5121,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="4" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="3"]
+[node name="4" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="4"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 60.0
-margin_right = 76.0
+margin_left = 80.0
+margin_right = 96.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -5087,15 +5192,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="5" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="4"]
+[node name="5" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="5"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 80.0
-margin_right = 96.0
+margin_left = 100.0
+margin_right = 116.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -5158,15 +5263,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="6" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="5"]
+[node name="6" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="6"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 100.0
-margin_right = 116.0
+margin_left = 120.0
+margin_right = 136.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -5229,15 +5334,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="7" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="6"]
+[node name="7" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="7"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 120.0
-margin_right = 136.0
+margin_left = 140.0
+margin_right = 156.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -5300,15 +5405,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="8" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="7"]
+[node name="8" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="8"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 140.0
-margin_right = 156.0
+margin_left = 160.0
+margin_right = 176.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -5371,15 +5476,15 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="9" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="8"]
+[node name="9" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="9"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 160.0
-margin_right = 176.0
+margin_left = 180.0
+margin_right = 196.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -5442,77 +5547,6 @@ flat = false
 align = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="10" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values" index="9"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 180.0
-margin_right = 196.0
-margin_bottom = 42.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
-alignment = 0
-_sections_unfolded = [ "Rect", "Size Flags" ]
-
-[node name="check" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values/10" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 16.0
-margin_bottom = 19.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 2
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.1
-disabled = true
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = false
-align = 0
-_sections_unfolded = [ "Margin", "Size Flags" ]
-
-[node name="check2" type="CheckBox" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/ENERGY/values/10" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 23.0
-margin_right = 16.0
-margin_bottom = 42.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 2
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.1
-disabled = true
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = false
-align = 0
-_sections_unfolded = [ "Margin", "Size Flags" ]
-
 [node name="MORAL" type="VBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="3"]
 
 editor/display_folded = true
@@ -5531,9 +5565,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 alignment = 1
-script = ExtResource( 18 )
+script = ExtResource( 19 )
 _sections_unfolded = [ "Size Flags" ]
-value = 0
 
 [node name="label" type="Label" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL" index="0"]
 
@@ -5724,7 +5757,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 19 )
+custom_styles/panel = ExtResource( 20 )
 _sections_unfolded = [ "Anchor", "Margin", "custom_styles" ]
 
 [node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/valuesVert/0" index="2" instance=ExtResource( 12 )]
@@ -5795,7 +5828,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 19 )
+custom_styles/panel = ExtResource( 20 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_styles" ]
 
 [node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/valuesVert/1" index="2" instance=ExtResource( 12 )]
@@ -5866,7 +5899,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 19 )
+custom_styles/panel = ExtResource( 20 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_styles" ]
 
 [node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/valuesVert/2" index="2" instance=ExtResource( 12 )]
@@ -5937,7 +5970,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 20 )
+custom_styles/panel = ExtResource( 21 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_styles" ]
 
 [node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/valuesVert/3" index="2" instance=ExtResource( 12 )]
@@ -6008,7 +6041,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 20 )
+custom_styles/panel = ExtResource( 21 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_styles" ]
 
 [node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/valuesVert/4" index="2" instance=ExtResource( 12 )]
@@ -6079,7 +6112,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 20 )
+custom_styles/panel = ExtResource( 21 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_styles" ]
 
 [node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/valuesVert/5" index="2" instance=ExtResource( 12 )]
@@ -6150,7 +6183,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 20 )
+custom_styles/panel = ExtResource( 21 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_styles" ]
 
 [node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/valuesVert/6" index="2" instance=ExtResource( 12 )]
@@ -6221,7 +6254,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 20 )
+custom_styles/panel = ExtResource( 21 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_styles" ]
 
 [node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/valuesVert/7" index="2" instance=ExtResource( 12 )]
@@ -6292,7 +6325,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 20 )
+custom_styles/panel = ExtResource( 21 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_styles" ]
 
 [node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/valuesVert/8" index="2" instance=ExtResource( 12 )]
@@ -6363,7 +6396,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/panel = ExtResource( 20 )
+custom_styles/panel = ExtResource( 21 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_styles" ]
 
 [node name="dot" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/MORAL/valuesVert/9" index="2" instance=ExtResource( 12 )]
@@ -6605,9 +6638,8 @@ caret_blink_speed = 0.65
 caret_position = 0
 script = ExtResource( 13 )
 
-[node name="misc" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="6"]
+[node name="pad" type="Container" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE" index="6"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -6617,28 +6649,10 @@ margin_right = 291.0
 margin_bottom = 665.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 1
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 0
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="equip" type="HBoxContainer" parent="scroll/margin/org/advantages/TRAITS/traits/LIFE/misc" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 291.0
-margin_bottom = 230.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-alignment = 0
 _sections_unfolded = [ "Size Flags" ]
 
 [connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit/dots/dot" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit" method="_on_dot_toggled"]
@@ -6720,8 +6734,6 @@ _sections_unfolded = [ "Size Flags" ]
 [connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots/dot4" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8" method="_on_dot_toggled"]
 
 [connection signal="toggled" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8/dots/dot5" to="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/MERITS/merit8" method="_on_dot_toggled"]
-
-[connection signal="text_changed" from="scroll/margin/org/advantages/TRAITS/traits/BACKGROUNDS/OTHER/SIZE/input" to="." method="_text_changed"]
 
 
 [editable path="scroll/margin/org/advantages/TRAITS/traits/LIFE/HEALTH/values/1/dot"]
