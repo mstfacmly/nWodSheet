@@ -6,6 +6,9 @@ var value
 func save():
 	Global.dict['info'][get_parent().get_name()] = value
 
+func load_data():
+	pass
+
 func value_select(a):
 	value = a
 	sheet.call('save_data')

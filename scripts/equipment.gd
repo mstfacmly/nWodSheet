@@ -11,7 +11,10 @@ func new_val(x):
 	sheet.call('save_data')
 
 func save():
-	Global.dict['equipment'][$name.get_text()] = $value.get_text()
+	Global.dict['backgrounds'][$name.get_text()] = $value.get_text()
+
+func load_data():
+	pass
 
 func _ready():
 	$name.connect('focus_exited', self , 'save')

@@ -5,7 +5,5 @@ var dict = {
 'attributes' : {} ,
 'skills' : {} ,
 'backgrounds' : {} ,
-'equipment' : {} ,
 'xp' : {} ,
-'data': {}
 }

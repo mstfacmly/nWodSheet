@@ -10,6 +10,9 @@ func save():
 	else:
 		Global.dict['backgrounds'][$input.get_text()] = value
 
+func load_data():
+	pass
+
 func _ready():
 	value = 0
 	$input.connect('focus_exited', self, 'save')

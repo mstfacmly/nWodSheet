@@ -209,46 +209,48 @@ func save():
 	return Global
 """
 func save_data():
-	var save_game = File.new()
-	save_game.open('res://savegame.save', File.WRITE)
+	var save_data = File.new()
+	save_data.open('res://savegame.save', File.WRITE)
 	
 	var SaveNodes = get_tree().get_nodes_in_group('saveData')
-	
-	
 	for i in SaveNodes:
-		var node_data = i.call('save')
-#		save_game.store_string(to_json(node_data))
+		i.call('save')
 	
-	save_game.store_line(to_json(Global.dict))
-	
-	save_game.close()
+	save_data.store_line(to_json(Global.dict))
+	save_data.close()
 
 func load_data():
-	var save_game = File.new()
-	if !save_game.file_exists('res://savegame.save'):
+	var saved_data = File.new()
+	if !saved_data.file_exists('res://savegame.save'):
 		print('no sheet data to load! skipping...')
 		return # No save file to load!
-	else:
-		print('loading sheet...')
-	save_game.open('res://savegame.save', File.READ )
-#	print(parse_json(save_game.get_as_text()))
-	var load_data = parse_json(save_game.get_as_text())
-	for i in load_data.keys():
-		print(i)
-#		set(i, load_data[i])
+	saved_data.open('res://savegame.save', File.READ )
+	var SaveNodes = get_tree().get_nodes_in_group('saveData')
+#	for i in SaveNodes:
+#		if i.get_methods_list().has('load'):
+#		i.call('load_data')
+	var load_data = parse_json(saved_data.get_line())
+#	while not saved_data.eof_reached():
+	for i in load_data['attributes']:
+		set(i, load_data['attributes'][i]['value'])
+#		print(i, ' ' ,load_data['attributes'][i]['value'])
 	"""
-	while !save_game.eof_reached():
-		var load_data = parse_json(save_game.get_line())
-		if typeof(load_data) == TYPE_ARRAY:
-			for i in load_data.keys():
-#				print(i,load_data[i])
-				set(i, load_data[i])
-				"""
-	save_game.close()
+	for i in load_data.keys():
+		print('loading ', i,'...')
+		for s in load_data[i].keys():
+#			print('loading ', s, '...')
+			if typeof(load_data[i][s]) == TYPE_DICTIONARY:
+				for a in load_data[i][s]:
+#					print('loading ', a,'...')
+					set(a, load_data[i][s][a])
+			set(s, load_data[i][s])
+#			print('done!')
+		set(i, load_data[i])
+		print('done!')"""
 
-func _ready():
-	load_data()
-	
+	saved_data.close()
+
+func _ready():	
 	if OS.get_name()=="HTML5":
 		OS.set_window_maximized(1)
 	
@@ -256,3 +258,4 @@ func _ready():
 	set_moral()
 	$scroll/margin/org/title.set_text(GAMENAME.capitalize())
 	gameXP.connect('text_entered', self, 'calc_xp')
+	load_data()

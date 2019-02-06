@@ -28,6 +28,9 @@ func save():
 	pass
 #	Global.dict['skills'][skillParent.get_name()] = str(' specialties', checked)
 
+func load_data():
+	pass
+
 func _ready():
 	get_popup().connect('index_pressed', self, 'set_checked')
 	add_stylebox_override('normal', load('res://assets/styleboxes/white_dark.tres'))

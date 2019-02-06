@@ -11,6 +11,9 @@ func experience(i):
 func save():
 	Global.dict['xp'][get_parent().get_child(label - 1).get_text()] = get_text()
 
+func load_data():
+	pass
+
 func _ready():
 	add_to_group('saveData')
 	connect('text_entered', self, 'experience')

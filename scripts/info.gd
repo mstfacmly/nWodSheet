@@ -11,6 +11,9 @@ func new_text(x):
 func save():
 	Global.dict['info'][get_name()] = $input.text
 
+func load_data():
+	pass
+
 func _ready():
 	$input.connect('text_entered', self , 'new_text')
 	$input.connect('focus_exited', sheet, 'save_data')

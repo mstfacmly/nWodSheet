@@ -27,6 +27,9 @@ func save():
 		else:
 			return
 
+func load_data():
+	pass
+
 func _ready():
 	populate()
 	get_popup().connect('id_pressed', self, 'set_text')

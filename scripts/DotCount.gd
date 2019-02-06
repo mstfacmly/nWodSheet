@@ -3,14 +3,11 @@ extends BoxContainer
 signal recalc
 signal xp_spend
 
+var nm = ''
 var value = 0
 
 onready var sheet = get_node('/root/base')
 #onready var health = find_node('HEALTH', 1 )
-
-func set_pressed():
-	for i in value:
-		find_node('btn').set_pressed(0)
 
 func _on_dot_toggled(btn):
 	count(btn)
@@ -24,11 +21,16 @@ func count(b):
 		value += 1
 	hint_tooltip = str(value)
 
+func set_pressed(nm, value):
+	if get_name() == nm:
+		$label.hint_tooltip = str(value)
+		for i in value:
+			find_node('dots').get_child(i).set_pressed(0)
+
 func _ready():
 	connect('recalc', sheet, 'calcs')
 	connect('xp_spend', sheet, 'spend_xp')
 #	connect('recalc', health, 'calc_health')
 #		print(is_connected('recalc', sheet, 'calcs'))
-	hint_tooltip = str(value)
-	set_pressed()
+#	hint_tooltip = str(value)
 	add_to_group('saveData')

@@ -7,7 +7,10 @@ func update_text(i):
 	sheet.call('save_data')
 
 func save():
-	Global.dict['data'][get_name()] = text
+	Global.dict['backgrounds'][get_name()] = text
+
+func load_data():
+	pass
 
 func _ready():
 	add_to_group('saveData')
