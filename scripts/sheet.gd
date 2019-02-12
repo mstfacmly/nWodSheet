@@ -102,8 +102,6 @@ func spend_xp(n):
 			pass
 	else:
 		print(n.get_name())
-	
-	save_data()
 
 func calc_xp(xp):
 #	print(xp)
@@ -226,36 +224,18 @@ func load_data():
 		return # No save file to load!
 	saved_data.open('res://savegame.save', File.READ )
 	var SaveNodes = get_tree().get_nodes_in_group('saveData')
-#	for i in SaveNodes:
-#		if i.get_methods_list().has('load'):
-#		i.call('load_data')
-	var load_data = parse_json(saved_data.get_line())
-#	while not saved_data.eof_reached():
-	for i in load_data['attributes']:
-		set(i, load_data['attributes'][i]['value'])
-#		print(i, ' ' ,load_data['attributes'][i]['value'])
-	"""
-	for i in load_data.keys():
-		print('loading ', i,'...')
-		for s in load_data[i].keys():
-#			print('loading ', s, '...')
-			if typeof(load_data[i][s]) == TYPE_DICTIONARY:
-				for a in load_data[i][s]:
-#					print('loading ', a,'...')
-					set(a, load_data[i][s][a])
-			set(s, load_data[i][s])
-#			print('done!')
-		set(i, load_data[i])
-		print('done!')"""
+	for i in SaveNodes:
+		i.call('load_data')
 
 	saved_data.close()
 
 func _ready():	
 	if OS.get_name()=="HTML5":
 		OS.set_window_maximized(1)
-	
+		
+	load_data()
 	calcs()
 	set_moral()
+
 	$scroll/margin/org/title.set_text(GAMENAME.capitalize())
 	gameXP.connect('text_entered', self, 'calc_xp')
-	load_data()

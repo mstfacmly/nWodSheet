@@ -20,12 +20,20 @@ func count(b):
 	else:
 		value += 1
 	hint_tooltip = str(value)
+	set_pressed()
 
-func set_pressed(nm, value):
+func load_pressed(nm, val):
 	if get_name() == nm:
-		$label.hint_tooltip = str(value)
-		for i in value:
+		value = val
+		hint_tooltip = str(val)
+		for i in val:
 			find_node('dots').get_child(i).set_pressed(0)
+
+func set_pressed():
+	for i in value:
+		find_node('dots').get_child(i).set_pressed(0)
+	call('save')
+#	sheet.call('save_data')
 
 func _ready():
 	connect('recalc', sheet, 'calcs')

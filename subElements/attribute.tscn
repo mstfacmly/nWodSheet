@@ -20,7 +20,6 @@ size_flags_vertical = 1
 alignment = 0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
-value = 0
 
 [node name="label" type="Label" parent="." index="0"]
 
@@ -50,7 +49,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 90.0
-margin_right = 168.0
+margin_right = 158.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -67,7 +66,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 172.0
+margin_left = 162.0
 margin_right = 238.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -81,37 +80,37 @@ _sections_unfolded = [ "Size Flags" ]
 
 [node name="dot" parent="dots" index="0" instance=ExtResource( 2 )]
 
-margin_top = 2.0
-margin_bottom = 12.0
+margin_top = 1.0
+margin_bottom = 13.0
 disabled = true
 
 [node name="dot2" parent="dots" index="1" instance=ExtResource( 2 )]
 
-margin_left = 14.0
-margin_top = 2.0
-margin_right = 24.0
-margin_bottom = 12.0
+margin_left = 16.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 13.0
 
 [node name="dot3" parent="dots" index="2" instance=ExtResource( 2 )]
 
-margin_left = 28.0
-margin_top = 2.0
-margin_right = 38.0
-margin_bottom = 12.0
+margin_left = 32.0
+margin_top = 1.0
+margin_right = 44.0
+margin_bottom = 13.0
 
 [node name="dot4" parent="dots" index="3" instance=ExtResource( 2 )]
 
-margin_left = 42.0
-margin_top = 2.0
-margin_right = 52.0
-margin_bottom = 12.0
+margin_left = 48.0
+margin_top = 1.0
+margin_right = 60.0
+margin_bottom = 13.0
 
 [node name="dot5" parent="dots" index="4" instance=ExtResource( 2 )]
 
-margin_left = 56.0
-margin_top = 2.0
-margin_right = 66.0
-margin_bottom = 12.0
+margin_left = 64.0
+margin_top = 1.0
+margin_right = 76.0
+margin_bottom = 13.0
 
 [connection signal="toggled" from="dots/dot" to="." method="_on_dot_toggled"]
 

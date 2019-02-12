@@ -10,3 +10,4 @@ func _text_changed():
 func _ready():
 	connect('text_entered', self, '_text_changed')
 	connect('focus_exited', sheet, 'updt_size')
+	connect('text_entered', sheet, 'updt_size')
